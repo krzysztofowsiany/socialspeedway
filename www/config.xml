@@ -4,10 +4,10 @@
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <author email="dev@callback.apache.org" href="http://cordova.io">
+    <author email="gocom@o2.pl" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <content src="pages/welcome.html" />
+    <content src="startpage.html" />
     <access origin="*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
