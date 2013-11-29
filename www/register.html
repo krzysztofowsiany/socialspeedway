@@ -6,6 +6,12 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />        
         <link rel="stylesheet" type="text/css" href="css/pages/register.css" />
+        <script type="text/javascript" src="js/loader.js"></script>
+        <script type="text/javascript">
+        	loadScript("js/libs/md5.js",function(){});        	
+        	loadScript("js/communication/register.class.js",function(){});
+        	loadScript("js/pages/register_page.js",function(){page.initialize();    });
+        </script>
         <title>SocialSpeedway</title>
     </head>
     <body>
@@ -18,17 +24,10 @@
             		<label form="form_register" for="password">Password:</label><br/>
             		<input type="password" id="password" placeholder="Enter password"><br/>
             		
-            		<label form="form_register" for="email">Email:</label><br/>
-            		<input type="email" id="email" placeholder="Enter email"><br/>
+            		
             	</form>            	
             	<button class="register">Register</button><br/>           	    
             
         </section>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/libs/jquery.min.js"></script>
-        <script type="text/javascript" src="js/pages/register_page.js"></script>
-        <script type="text/javascript">
-        	page.initialize();
-        </script>
     </body>
 </html>

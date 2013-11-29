@@ -28,9 +28,13 @@ var page = {
     
     //navigation
     onClickRegister:function()
-    {    	
-    //	window.location = "game.html";
-    	alert("register user");
+    {	
+    	var r = new RegisterCommunication("http://localhost:8080");
+    	r.register(
+    			$("#login").val(),
+    			$("#password").val()
+    		);    	
+    	
     },    
         
     // deviceready Event Handler

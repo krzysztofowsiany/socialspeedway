@@ -52,10 +52,29 @@ var page = {
     {    	
     	window.location = "training.html";
     },
+    onClickLogout:function() {
+    	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
+    	gameState.setGameState(GAMESTATE.NEW);
+    	window.location = "startpage.html";
+    },
+     
         
     // deviceready Event Handler
     onDeviceReady: function() {
-    	$(".register").on('click', page.onClickRegister);
+    	if (gameState.isSigned()) {
+    		$(".register").hide();
+    		$(".logout").show();
+    		$(".logout").on('click', page.onClickLogout);
+    		
+    	}
+    	else
+    		{
+    			$(".register").on('click', page.onClickRegister);
+    			$(".logout").hide();
+    			
+    		}
+    	
+    	
     	$(".profile").on('click', page.onClickProfile);
     	$(".achievements").on('click', page.onClickAchievements);
     	$(".badges").on('click', page.onClickBadges);

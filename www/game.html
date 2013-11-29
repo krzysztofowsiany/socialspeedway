@@ -7,6 +7,11 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         
         <link rel="stylesheet" type="text/css" href="css/pages/game.css" />
+        <script type="text/javascript" src="js/loader.js"></script>
+        <script type="text/javascript">        	
+        	loadScript("js/game/game.class.js",function(){});
+        	loadScript("js/pages/game_page.js",function(){page.initialize();});
+        </script>
         <title>SocialSpeedway</title>
     </head>
     <body>
@@ -17,12 +22,8 @@
             	<button class="achievements">Achievements</button>
             	<button class="badges">Badges</button>
             	<button class="training">Training</button>
+            	<button class="logout">Logout</button>
         </section>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/libs/jquery.min.js"></script>
-        <script type="text/javascript" src="js/pages/game_page.js"></script>
-        <script type="text/javascript">
-        	page.initialize();
-        </script>
+
     </body>
 </html>

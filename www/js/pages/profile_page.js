@@ -35,7 +35,10 @@ var page = {
     //navigation
     onClickSave:function()
     {    	
-    	//window.location = "game.html";
+    	var p = new ProfileCommunication("http://localhost:8080");
+    	p.email =  $("#email").val();    			
+        
+    	p.save();
     },
     
         
