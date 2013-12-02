@@ -6,7 +6,7 @@
 var page = {
     // Application Constructor
     initialize: function() {
-    	if ( "device" in window ) 
+    	if ( CORE.isDEVICE() ) 
     	{
     		this.bindDeviceEvents();
     	
@@ -23,8 +23,9 @@ var page = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     //bind device
-    bindDeviceEvents: function() {    	
-    		$(document).on('deviceready', page.onDeviceReady, false);
+    bindDeviceEvents: function() {   	
+    	    document.addEventListener("deviceready", page.onDeviceReady, false);
+    		//$(document).bind('deviceready', page.onDeviceReady, false);
     },    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
@@ -35,8 +36,10 @@ var page = {
     //navigation
     onClickNewGame:function()
     {    	
+    	gameData.newGame();
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
-    	gameState.setGameState(GAMESTATE.NEW);
+		gameState.setGameState(GAMESTATE.NEW);
+		
     	window.location = "game.html";
     },
     onClickContinue:function()
@@ -47,15 +50,19 @@ var page = {
     },
     onClickLogin:function()
     {    	
-    	var l = new LoginCommunication("http://localhost:8080",
-    			function(){    				
+    	var l = new LoginCommunication( CORE.SERVER_URL,
+    			//login ok
+    			function(id){    				
     				gameState.setPlayerState( PLAYERSTATE.SIGNED);
     				gameState.setGameState(GAMESTATE.CONTINUE);
+    				gameData.setPlayerID(id);
     				window.location = "game.html";
     			},
+    			//fail
     			function(){
     				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
     				gameState.setGameState(GAMESTATE.NEW);
+    				gameData.setPlayerID(0);
     				window.location = "startpage.html";
     			}
     	);    	
@@ -70,11 +77,10 @@ var page = {
     },
         
     // deviceready Event Handler
-    onDeviceReady: function() {
+    onDeviceReady: function() {    	
     	$(".login").on('click', page.onClickLogin);
     	$(".new_game").on('click', page.onClickNewGame);
-    	$(".continue").on('click', page.onClickContinue);
-    	
+    	$(".continue").on('click', page.onClickContinue); 	
     	
     },       
     

@@ -6,23 +6,52 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />        
         <link rel="stylesheet" type="text/css" href="css/pages/profile.css" />
-        <script type="text/javascript" src="js/loader.js"></script>
+        <script type="text/javascript" src="js/core.class.js"></script>
         <script type="text/javascript">
-        	loadScript("js/communication/profile.class.js",function(){});
-        	loadScript("js/pages/profile_page.js",function(){page.initialize();});
+        	CORE.loadScript("js/communication/profile.class.js",function(){});
+        	CORE.loadScript("js/pages/profile_page.js",function(){page.initialize();});
         </script>
         <title>SocialSpeedway</title>
     </head>
     <body>
     	<header>Player Profile</header>
         <section class="page">            
-            	<form id="profile">
-            		<input type="email" id="email" placeholder="Enter email"><br/>
-            		          		
+            	<form id="profile">            		
+            		<label for="name">Name</label>
+            		<input type="text" id="name" placeholder="Enter name"><br/>
+            		
+            		<label for="surname">Surname</label>
+            		<input type="text" id="surname" placeholder="Enter surname"><br/>
+            		 
+            		<label for="sex">Sex</label>         		
+            		<select id="sex">
+					  	<option value="0">Not set</option>
+					  	<option value="1">Male</option>
+					  	<option value="2">Female</option>					  	
+					</select>
+					</br>
+					<!-- 
+					<label for="avatar">Avatar</label>
+            		<input type="text" id="avatar"><br/>
+            		<button id="avatar_file">Select file</button>
+            		<button id="avatar_picture">Take picture</button>
+            		</br> 
+            		-->
             		            		
+            		<label for="age">Age</label>
+            		<input type="number" id="age"><br/>
             	</form>
+            	<button class="save_profile">Save</button><br/>
+            	<hr>
+            	<form id="profile">
+            		<label for="email">Email</label>
+            		<input type="email" id="email" placeholder="Enter email"><br/>
+            		<label for="mobile">Mobile</label>
+            		<input type="tel" id="mobile" placeholder="Enter mobile"><br/>
+				</form>
+
             	
-            	<button class="save">Save</button><br/>            
+            	<button class="save_contact">Save</button><br/>            
         </section>        
     </body>
 </html>

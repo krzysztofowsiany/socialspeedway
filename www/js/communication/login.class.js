@@ -8,12 +8,10 @@ function LoginCommunication(URL, ok, fail)
 
 
 	function result(data)	{
-		if (data['login_result'] > 0)	{
-			alert('Logowanie ok');
-			_this_.okFunction();
+		if (data['login_result'] > 0)	{			
+			_this_.okFunction(data['login_result']);
 		}
 		else {
-			alert('logowanie błedne');
 			_this_.failFunction();
 		}
 	}

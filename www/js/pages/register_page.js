@@ -29,7 +29,7 @@ var page = {
     //navigation
     onClickRegister:function()
     {	
-    	var r = new RegisterCommunication("http://localhost:8080");
+    	var r = new RegisterCommunication(CORE.SERVER_URL);
     	r.register(
     			$("#login").val(),
     			$("#password").val()

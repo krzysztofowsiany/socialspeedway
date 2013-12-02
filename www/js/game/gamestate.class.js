@@ -13,12 +13,13 @@ var gameState = {
 	playerState:localStorage.getItem("playerState"),
 	gameState:localStorage.getItem("gameState"),
 	
+	
 	isSigned:function () {
 		return this.playerState == PLAYERSTATE.SIGNED;
 	},
 	
 	isGuest: function () {
-		return this.playerState== PLAYERSTATE.GUEST;
+		return this.playerState == PLAYERSTATE.GUEST;
 	},
 	
 	/*
@@ -34,6 +35,8 @@ var gameState = {
 		this.gameState = newState;
 		localStorage.setItem("gameState", this.gameState );
 	}
+	
+	
 	
 };
 

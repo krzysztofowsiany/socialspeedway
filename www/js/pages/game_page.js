@@ -55,6 +55,7 @@ var page = {
     onClickLogout:function() {
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
     	gameState.setGameState(GAMESTATE.NEW);
+    	gameData.setPlayerID(0);
     	window.location = "startpage.html";
     },
      
@@ -70,8 +71,7 @@ var page = {
     	else
     		{
     			$(".register").on('click', page.onClickRegister);
-    			$(".logout").hide();
-    			
+    			$(".logout").hide();    			
     		}
     	
     	
