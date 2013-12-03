@@ -8,9 +8,12 @@
         
         <link rel="stylesheet" type="text/css" href="css/pages/game.css" />
         <script type="text/javascript" src="js/core.class.js"></script>
-        <script type="text/javascript">        	
-        	CORE.loadScript("js/game/game.class.js",function(){});
-        	CORE.loadScript("js/pages/game_page.js",function(){page.initialize();});
+        <script type="text/javascript">   
+	        CORE.init(function() {	      		
+        		CORE.loadScript("js/game/game.class.js",function(){
+        			CORE.loadScript("js/pages/game_page.js",function(){page.initialize();});
+        		});    		
+	    	});    
         </script>
         <title>SocialSpeedway</title>
     </head>

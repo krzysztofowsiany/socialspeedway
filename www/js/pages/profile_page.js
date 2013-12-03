@@ -28,11 +28,13 @@ var page = {
     //navigation
     onClickSaveContact:function()
     {    	
+    	console.log('asdf');
     	page.setProfileContactFromValues();
     	
     	if (gameData.playerID>0) {
     		var p = new ProfileCommunication(CORE.SERVER_URL);
-    		p.save_contact(gameData);
+    		p.saveContact();
+    		
     	}
     	
     },
@@ -47,7 +49,7 @@ var page = {
     	
     	if (gameData.playerID>0) {
     		var p = new ProfileCommunication(CORE.SERVER_URL);
-       		p.save_profile(gameData);
+       		p.saveProfile();
     	}
     	
     },
@@ -79,15 +81,15 @@ var page = {
      * set data to HTML elements from JSON format data (database)
      * @params data
      */    
-    setData:function(data){
-    	$("#name").val("test");
-    	$("#surname").val("test");
-    	$("#age").val("1");
-    	$("#sex").val("1");    	
+    setData:function(data){    	
+    	$("#name").val(data.profile.name);
+    	$("#surname").val(data.profile.surname);
+    	$("#age").val(data.profile.age);
+    	$("#sex").val(data.profile.sex);    	
     	page.setProfilePlayerDataFromValues();
     	
-    	$("#email").val("sadf");
-    	$("#mobile").val("2");
+    	$("#email").val(data.profile.email);
+    	$("#mobile").val(data.profile.mobile);
     	page.setProfileContactFromValues();  	
     },
     /*
@@ -112,16 +114,17 @@ var page = {
      */
     loadData:function(){
     	if (gameData.playerID>0) {
-    		var p = new ProfileCommunication(CORE.SERVER_URL);
-    		p.getData(gameData.playerID, page.setData);
+    		var p = new ProfileCommunication(CORE.SERVER_URL, page.setData);
+    		p.getData(gameData.playerID);
+    		
     	}
     	else page.setDataFromLocalStorage();      	    	    	
     },
         
     // deviceready Event Handler
     onDeviceReady: function() {
-    	$(".save_profile").on('click', page.onClickSaveProfile);
-    	$(".save_contact").on('click', page.onClickSaveContact); 
+    	$(".saveProfile").on('click', page.onClickSaveProfile);
+    	$(".saveContact").on('click', page.onClickSaveContact); 
     	this.loadData();
     },       
     

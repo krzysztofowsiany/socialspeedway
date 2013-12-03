@@ -8,9 +8,13 @@
         <link rel="stylesheet" type="text/css" href="css/pages/register.css" />
         <script type="text/javascript" src="js/core.class.js"></script>
         <script type="text/javascript">
-       		CORE.loadScript("js/libs/md5.js",function(){});        	
-        	CORE.loadScript("js/communication/register.class.js",function(){});
-        	CORE.loadScript("js/pages/register_page.js",function(){page.initialize();    });
+        	CORE.init(function(){
+	       		CORE.loadScript("js/libs/md5.js",function(){        	
+	        		CORE.loadScript("js/communication/register.class.js",function(){
+	        			CORE.loadScript("js/pages/register_page.js",function(){page.initialize();    });
+	        		});
+	       		});
+        	});
         </script>
         <title>SocialSpeedway</title>
     </head>

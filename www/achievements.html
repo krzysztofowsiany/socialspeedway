@@ -8,7 +8,9 @@
         <link rel="stylesheet" type="text/css" href="css/pages/achievements.css" />
         <script type="text/javascript" src="js/core.class.js"></script>
         <script type="text/javascript">
-        	CORE.loadScript("js/pages/achievements_page.js",function(){page.initialize();});
+        	CORE.init(function() {	      
+        		CORE.loadScript("js/pages/achievements_page.js",function(){page.initialize();});
+        	});
         </script>
         <title>SocialSpeedway</title>
     </head>

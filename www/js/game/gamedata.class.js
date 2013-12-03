@@ -22,9 +22,23 @@ var gameData = {
 		this.playerContact = jsonData;
 		localStorage.setItem("playerContact", JSON.stringify(this.playerContact ));
 	},
-	newGame:function() {
-		setPlayerID(0);
+	emptyValues:function() {
+		this.setProfilePlayerData({
+			name:"", 
+			surname:"",
+			age:0,
+			sex:0
+		});
 		
+		this.setProfileContact({
+			email:"", 
+			mobile:""
+			});
+		
+	},
+	newGame:function() {
+		this.setPlayerID(0);
+		this.emptyValues();
 	}
 	
 };

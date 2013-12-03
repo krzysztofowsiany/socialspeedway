@@ -64,6 +64,7 @@ var page = {
     				gameState.setGameState(GAMESTATE.NEW);
     				gameData.setPlayerID(0);
     				window.location = "startpage.html";
+    				alert("Logowanie błędne");
     			}
     	);    	
     	

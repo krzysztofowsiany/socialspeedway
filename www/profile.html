@@ -8,8 +8,12 @@
         <link rel="stylesheet" type="text/css" href="css/pages/profile.css" />
         <script type="text/javascript" src="js/core.class.js"></script>
         <script type="text/javascript">
-        	CORE.loadScript("js/communication/profile.class.js",function(){});
-        	CORE.loadScript("js/pages/profile_page.js",function(){page.initialize();});
+        	CORE.init(function() {
+        		CORE.loadScript("js/communication/profile.class.js",function(){
+        			CORE.loadScript("js/pages/profile_page.js",function(){page.initialize();});	
+        		});
+        	});
+        	
         </script>
         <title>SocialSpeedway</title>
     </head>
@@ -41,7 +45,8 @@
             		<label for="age">Age</label>
             		<input type="number" id="age"><br/>
             	</form>
-            	<button class="save_profile">Save</button><br/>
+            	<button class="saveProfile">Save</button><br/>
+            	
             	<hr>
             	<form id="profile">
             		<label for="email">Email</label>
@@ -51,7 +56,7 @@
 				</form>
 
             	
-            	<button class="save_contact">Save</button><br/>            
+            	<button class="saveContact">Save</button><br/>            
         </section>        
     </body>
 </html>

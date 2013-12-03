@@ -5,7 +5,7 @@
  */
 var CORE = {
 	SERVER_URL :"http://localhost:8080",
-	init:function() {
+	init:function(subLoad) {
 		/**
 		 * SERVER URL,
 		 */
@@ -20,11 +20,24 @@ var CORE = {
 
 		
 		
-		this.loadScript("cordova.js",function(){});
-		this.loadScript("js/game/gamestate.class.js",function(){});
-		this.loadScript("js/game/gamedata.class.js",function(){});
-		this.loadScript("js/libs/jquery.min.js",function(){});
-		this.loadScript(this.SERVER_URL+"/socket.io/socket.io.js",function(){});
+		
+		CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js",function(){
+			CORE.loadScript("js/libs/jquery.min.js",function(){
+				CORE.loadScript("js/game/gamestate.class.js",function(){
+					CORE.loadScript("js/game/gamedata.class.js",function(){
+						///fiutire import
+						if (CORE.isDEVICE()) 
+							CORE.loadScript("cordova.js",function(){subLoad();});
+						else
+							subLoad();
+					});
+				});
+			});
+		});
+		
+		
+		
+		
 	},
 
 	loadScript:function(url, callback){
@@ -60,7 +73,7 @@ var CORE = {
 /**
  * INITIALIZE CORE
  */
-CORE.init();
+
 
 
 
