@@ -50,12 +50,14 @@ var page = {
     },
     onClickLogin:function()
     {    	
+    	ProgressBar.create();
     	var l = new LoginCommunication( CORE.SERVER_URL,
     			//login ok
     			function(id){    				
     				gameState.setPlayerState( PLAYERSTATE.SIGNED);
     				gameState.setGameState(GAMESTATE.CONTINUE);
     				gameData.setPlayerID(id);
+    				ProgressBar.destroy();
     				window.location = "game.html";
     			},
     			//fail
@@ -63,6 +65,7 @@ var page = {
     				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
     				gameState.setGameState(GAMESTATE.NEW);
     				gameData.setPlayerID(0);
+    				ProgressBar.destroy();
     				window.location = "startpage.html";
     				alert("Logowanie błędne");
     			}
@@ -82,6 +85,7 @@ var page = {
     	$(".login").on('click', page.onClickLogin);
     	$(".new_game").on('click', page.onClickNewGame);
     	$(".continue").on('click', page.onClickContinue); 	
+    	
     	
     },       
     

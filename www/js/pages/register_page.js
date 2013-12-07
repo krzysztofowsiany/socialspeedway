@@ -15,8 +15,9 @@ var page = {
     },
     // Bind Event Listeners
 
-    bindDeviceEvents: function() {    	
-    		$(document).on('deviceready', page.onDeviceReady, false);
+    bindDeviceEvents: function() {
+    	document.addEventListener("deviceready", page.onDeviceReady, false);
+    		//$(document).on('deviceready', page.onDeviceReady, false);
     },    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
@@ -31,14 +32,18 @@ var page = {
 				alert("Gracz zarejestrowany");
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
+				
 				gameData.setPlayerID(0);
-				window.location = "startpage.html";    				
+				ProgressBar.destroy();
+				window.location = "startpage.html";
+				
 			},
 			function () {
+				ProgressBar.destroy();
 				alert("Gracz nie został zarejestrowany");    				    				
 			}
 		);
-    	
+    	ProgressBar.create();
     	r.register(
     			$("#login").val(),
     			$("#password").val()    			
@@ -50,6 +55,6 @@ var page = {
     onDeviceReady: function() {
     	$(".register").on('click', page.onClickRegister);
     	
-    },       
+    },
     
 };

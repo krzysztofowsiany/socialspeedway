@@ -9,11 +9,18 @@ var CORE = {
 		/**
 		 * SERVER URL,
 		 */
+		//local server
 		this.SERVER_URL = "http://localhost:8080";
+		//remote server
+		//	this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
 		if (this.isDEVICE())
-			this.SERVER_URL = "http://10.0.2.2:8080";
+			//local			
+			//this.SERVER_URL = "http://10.0.2.2:8080";
+			//remote
+			this.SERVER_URL = "http://socialspeedway.com:8080";
+		
 		/**
 		 * default includes
 		 */
@@ -25,11 +32,13 @@ var CORE = {
 			CORE.loadScript("js/libs/jquery.min.js",function(){
 				CORE.loadScript("js/game/gamestate.class.js",function(){
 					CORE.loadScript("js/game/gamedata.class.js",function(){
-						///fiutire import
-						if (CORE.isDEVICE()) 
-							CORE.loadScript("cordova.js",function(){subLoad();});
-						else
-							subLoad();
+						CORE.loadScript("js/game/progressbar.class.js",function(){
+							///fiutire import
+							if (CORE.isDEVICE()) 
+								CORE.loadScript("cordova.js",function(){subLoad();});
+							else
+								subLoad();
+						});
 					});
 				});
 			});

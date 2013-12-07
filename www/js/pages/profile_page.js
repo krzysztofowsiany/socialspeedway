@@ -17,8 +17,10 @@ var page = {
     // 'load', 'deviceready', 'offline', and 'online'.
     //bind device
     bindDeviceEvents: function() {    	
-    		$(document).on('deviceready', page.onDeviceReady, false);
+    	document.addEventListener("deviceready", page.onDeviceReady, false);
+    		//$(document).on('deviceready', page.onDeviceReady, true);
     },    
+    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
 		this.onDeviceReady();
@@ -26,32 +28,34 @@ var page = {
     
     
     //navigation
-    onClickSaveContact:function()
-    {    	
-    	console.log('asdf');
+    onClickSaveContact:function()   {   
+    	ProgressBar.create();
     	page.setProfileContactFromValues();
     	
     	if (gameData.playerID>0) {
     		var p = new ProfileCommunication(CORE.SERVER_URL);
-    		p.saveContact();
-    		
+    		p.saveContact();    		
     	}
     	
+    	ProgressBar.destroy();
     },
+    
     isValidEmailAddress:function (emailAddress) {
         var pattern = new RegExp(/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/);
         return pattern.test(emailAddress);
     },
     
-    onClickSaveProfile:function()
-    {    	
+    onClickSaveProfile:function()   {
+    	ProgressBar.create();
     	page.setProfilePlayerDataFromValues();
     	
     	if (gameData.playerID>0) {
     		var p = new ProfileCommunication(CORE.SERVER_URL);
        		p.saveProfile();
+       		
     	}
     	
+    	ProgressBar.destroy();    	
     },
     /*
      * setProfilePlayerDataFromValues
@@ -90,7 +94,9 @@ var page = {
     	
     	$("#email").val(data.profile.email);
     	$("#mobile").val(data.profile.mobile);
-    	page.setProfileContactFromValues();  	
+    	page.setProfileContactFromValues();
+    	
+    	ProgressBar.destroy();
     },
     /*
      * setDataFromLocalStorage
@@ -98,14 +104,15 @@ var page = {
      * and set HTML elements 
      */
     setDataFromLocalStorage:function() {
-    	console.log(gameData.playerData);
+    	//console.log(gameData.playerData);
     	$("#name").val(gameData.playerData.name);
     	$("#surname").val(gameData.playerData.surname);
     	$("#age").val(gameData.playerData.age);
     	$("#sex").val(gameData.playerData.sex);    	
     	    	
     	$("#email").val(gameData.playerContact.email);
-    	$("#mobile").val(gameData.playerContact.mobile);    	  
+    	$("#mobile").val(gameData.playerContact.mobile);
+    	ProgressBar.destroy();
     },
     
     /*
@@ -113,8 +120,9 @@ var page = {
      * load data from database if player are registered
      */
     loadData:function(){
-    	if (gameData.playerID>0) {
-    		var p = new ProfileCommunication(CORE.SERVER_URL, page.setData);
+    	ProgressBar.create();
+    	if (gameData.playerID>0) {    		
+    		var p = new ProfileCommunication(CORE.SERVER_URL, page.setData);    		
     		p.getData(gameData.playerID);
     		
     	}
@@ -122,10 +130,11 @@ var page = {
     },
         
     // deviceready Event Handler
-    onDeviceReady: function() {
+    onDeviceReady: function() {    	
     	$(".saveProfile").on('click', page.onClickSaveProfile);
     	$(".saveContact").on('click', page.onClickSaveContact); 
-    	this.loadData();
+    	
+    	page.loadData();
     },       
     
 };

@@ -1,5 +1,4 @@
-function ProfileCommunication(URL, resultFunction)
-{	
+function ProfileCommunication(URL, resultFunction){	
 	var _this_ = this;
 	this.resultFunction = resultFunction;
 	this.socket = io.connect(URL);	
@@ -21,6 +20,7 @@ function ProfileCommunication(URL, resultFunction)
 	function saveContactResult(data) {
 		alert("Kontakt zapisany");		
 	}
+	
 	function saveProfileResult(data) {
 		alert("Dane zapisane");
 	}
@@ -32,13 +32,11 @@ function ProfileCommunication(URL, resultFunction)
 		  		age:gameData.playerData.age,
 		  		name:gameData.playerData.name,
 		  		surname:gameData.playerData.surname,
-		  		avatar:"",		  	
-		  		
+		  		avatar:"",		
 		  		
 		  		playerID:gameData.playerID
 			}
 	  	);
-
 	}
 	
 	function saveContact(){	
@@ -50,7 +48,6 @@ function ProfileCommunication(URL, resultFunction)
 		  		playerID:gameData.playerID
 			}
 	  	);
-
 	}
 	
 	function getData(id)	{		
@@ -59,7 +56,6 @@ function ProfileCommunication(URL, resultFunction)
 		  		playerID:id
 			}
 	  	);
-
 	}
 
 	return {

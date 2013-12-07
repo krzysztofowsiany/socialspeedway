@@ -4,19 +4,12 @@
  */
 
 var page = {
-    // Application Constructor
+	// Application Constructor
     initialize: function() {
-    	if ( "device" in window ) 
-    	{
-    		this.bindDeviceEvents();
-    	
-    	} else {
-    		
-    		this.bindEvents();
-    		
-    	}
-
-    	
+    	if ( CORE.isDEVICE() ) 
+    		this.bindDeviceEvents();    	
+    	else     		
+    		this.bindEvents();    	
     },
     // Bind Event Listeners
     //
@@ -24,13 +17,13 @@ var page = {
     // 'load', 'deviceready', 'offline', and 'online'.
     //bind device
     bindDeviceEvents: function() {    	
-    		$(document).on('deviceready', page.onDeviceReady, false);
+    	document.addEventListener("deviceready", page.onDeviceReady, false);
+    		//$(document).on('deviceready', page.onDeviceReady, true);
     },    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
 		this.onDeviceReady();
-    },
-    
+    },    
     
     //navigation
    

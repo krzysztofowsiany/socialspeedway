@@ -6,15 +6,10 @@
 var page = {
     // Application Constructor
     initialize: function() {
-    	if ( "device" in window ) 
-    	{
-    		this.bindDeviceEvents();
-    	
-    	} else {
-    		
-    		this.bindEvents();    		
-    	}
-
+    	if ( CORE.isDEVICE() ) 
+    		this.bindDeviceEvents();    	
+    	 else     		
+    		this.bindEvents();  
     	
     },
     // Bind Event Listeners
@@ -22,8 +17,9 @@ var page = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     //bind device
-    bindDeviceEvents: function() {    	
-    		$(document).on('deviceready', page.onDeviceReady, false);
+    bindDeviceEvents: function() {  
+    	document.addEventListener("deviceready", page.onDeviceReady, false);
+    	//$(document).on('deviceready', page.onDeviceReady, true);
     },    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
@@ -61,19 +57,16 @@ var page = {
      
         
     // deviceready Event Handler
-    onDeviceReady: function() {
+    onDeviceReady: function() {    	
     	if (gameState.isSigned()) {
     		$(".register").hide();
     		$(".logout").show();
-    		$(".logout").on('click', page.onClickLogout);
-    		
+    		$(".logout").on('click', page.onClickLogout);    		
     	}
-    	else
-    		{
+    	else {
     			$(".register").on('click', page.onClickRegister);
     			$(".logout").hide();    			
-    		}
-    	
+    		}    	
     	
     	$(".profile").on('click', page.onClickProfile);
     	$(".achievements").on('click', page.onClickAchievements);
