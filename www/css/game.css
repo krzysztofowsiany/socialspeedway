@@ -1,0 +1,12 @@
+header {
+	text-align:center;
+}
+
+div.button
+{
+	width:80pt;
+	height:80pt;
+	float:left;
+	margin:1pt;
+	background-color:red;
+}

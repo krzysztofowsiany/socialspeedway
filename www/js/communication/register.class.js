@@ -1,9 +1,9 @@
-function RegisterCommunication(URL, ok, fail){	
+function RegisterCommunication(sock, ok, fail){	
 	var _this_ = this;
 	this.okFunction = ok;
 	this.failFunction = fail;
 	
-	this.socket = io.connect(URL);	
+	this.socket = sock;	
 	this.socket.on('register_result', result);
 	
 	function result (data){

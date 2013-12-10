@@ -1,7 +1,7 @@
-function ProfileCommunication(URL, resultFunction){	
+function ProfileCommunication(sock, resultFunction){	
 	var _this_ = this;
 	this.resultFunction = resultFunction;
-	this.socket = io.connect(URL);	
+	this.socket = sock;	
 	this.socket.on('profile_result',result);
 	this.socket.on('resultData',resultData);
 	
@@ -9,8 +9,7 @@ function ProfileCommunication(URL, resultFunction){
 	this.socket.on('saveProfileResult',saveProfileResult);
 	
 	function result (data)	{
-		if (data['profile_result'] == '0')
-			alert('Profil zapisany');
+		
 	}
 	
 	function resultData(data)	{		

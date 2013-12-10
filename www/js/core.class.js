@@ -4,6 +4,7 @@
  * @param callback
  */
 var CORE = {
+	SOCKET:undefined,
 	SERVER_URL :"http://localhost:8080",
 	init:function(subLoad) {
 		/**
@@ -26,23 +27,49 @@ var CORE = {
 		 */
 
 		
-		
-		
-		CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js",function(){
-			CORE.loadScript("js/libs/jquery.min.js",function(){
-				CORE.loadScript("js/game/gamestate.class.js",function(){
-					CORE.loadScript("js/game/gamedata.class.js",function(){
-						CORE.loadScript("js/game/progressbar.class.js",function(){
-							///fiutire import
-							if (CORE.isDEVICE()) 
-								CORE.loadScript("cordova.js",function(){subLoad();});
-							else
-								subLoad();
-						});
-					});
-				});
+      	
+      	CORE.loadScript("js/libs/md5.js", function(){
+      		CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js", function(){
+				CORE.loadScript("js/libs/jquery.min.js", function(){
+					CORE.loadScript("js/libs/jquery.mobile-1.3.2.min.js", function(){
+						CORE.loadScript("js/game/gamestate.class.js", function(){
+							CORE.loadScript("js/game/gamedata.class.js", function(){
+								CORE.loadScript("js/communication/login.class.js", function(){
+									CORE.loadScript("js/communication/profile.class.js", function(){
+										CORE.loadScript("js/communication/register.class.js", function(){
+										
+										
+											CORE.loadScript("js/pages/start_page.class.js", function(){
+												CORE.loadScript("js/pages/profile_page.class.js", function(){
+													CORE.loadScript("js/pages/game_page.class.js", function(){		        
+														CORE.loadScript("js/pages/register_page.class.js", function(){			
+															CORE.loadScript("js/pages/training_page.class.js", function(){
+																
+																CORE.loadScript("js/pages/achievements_page.class.js", function(){
+																	CORE.loadScript("js/pages/badges_page.class.js", function(){
+																		if (CORE.isDEVICE()) 
+																			CORE.loadScript("cordova.js",function(){subLoad();});
+																		else
+																			subLoad();
+																		
+																	});
+																	
+																});	
+																
+															});	
+														});	
+													});
+												}); 
+											});	
+										});	
+									});	
+								});	
+							}); 
+						}); 
+					}); 
+				}); 
 			});
-		});
+		}); 
 		
 		
 		

@@ -1,9 +1,9 @@
-function LoginCommunication(URL, ok, fail)
+function LoginCommunication(sock, ok, fail)
 {	
 	var _this_ = this;
 	this.okFunction = ok;
 	this.failFunction = fail;
-	this.socket = io.connect(URL);	
+	this.socket = sock;	
 	this.socket.on('login_result',result);
 
 
@@ -17,7 +17,7 @@ function LoginCommunication(URL, ok, fail)
 	}
 
 	function login(n, p) {
-		_this_ .socket.emit('login',
+		_this_.socket.emit('login',
 			{ 
 		  		name: n,
 		  		password:CryptoJS.MD5(p).toString(CryptoJS.enc.Hex)		  		
