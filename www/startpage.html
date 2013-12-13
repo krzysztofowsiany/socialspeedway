@@ -22,30 +22,43 @@
     <body>
     	<!-- start page -->
 		<div data-role="page" id="start_page">
-			<form>
-            	<input type="text" id="login" placeholder="Enter login"><br/>
-            	<input type="password" id="password" placeholder="Enter password"><br/>          		
+			<div data-role="header">
+    			<h2>SocialSpeedway</h2>
+  			</div>
+			<div data-role="content">
+				<form>
+            		<input type="text" id="login" placeholder="Enter login"><br/>
+            		<input type="password" id="password" placeholder="Enter password"><br/>          		
             		            		
-            </form>
+            	</form>
             	
-            <button class="login">Login</button><br/> 
-            <button class="new_game">New game</button>
-            <button class="continue">Continue</button>		
+            	<button class="login">Login</button><br/> 
+            	<button class="new_game">New game</button>
+            	<button class="continue">Continue</button>
+            </div>			
 		</div>
 		
 		<!-- game menu -->
 		<div data-role="page" id="game_page">
-			<div class="button register">Register</div> 
-           	<div class="button profile">Player Profile</div>
-           	<div class="button achievements">Achievements</div>
-           	<div class="button badges">Badges</div>
-           	<div class="button training">Training</div>
-           	<div class="button logout">Logout</div>
+			<div data-role="header">
+    			<h2>SocialSpeedway</h2>
+  			</div>
+			<div data-role="content">
+				<div class="button register">Register</div> 
+	          	<div class="button profile">Player Profile</div>
+	          	<div class="button achievements">Achievements</div>
+	          	<div class="button badges">Badges</div>
+	          	<div class="button training">Training</div>
+	          	<div class="button logout">Logout</div>
+	          </div>
 		</div>
 		
 		
 		<!-- profile -->
 		<div data-role="page" id="profile_page">
+			<div data-role="header">
+    			<h2>Profile</h2>
+  			</div>
 			<form id="profile">            		
           		<label for="name">Name</label>
           		<input type="text" id="name" placeholder="Enter name"><br/>
@@ -88,12 +101,16 @@
 		
 		<!-- register -->
 		<div data-role="page" id="register_page">
+			<div data-role="header">
+    			<h2>Register</h2>
+  			</div>
+  	
 		  	<form id="form_register">
-           		<label form="form_register" for="login">Login:</label><br/>
-           		<input type="text" id="login" placeholder="Enter login"><br/>
+           		<label for="login">Login:</label><br/>
+           		<input type="text" id="loginRegister" placeholder="Enter login"><br/>
            		
-           		<label form="form_register" for="password">Password:</label><br/>
-           		<input type="password" id="password" placeholder="Enter password"><br/>
+           		<label for="password">Password:</label><br/>
+           		<input type="password" id="passwordRegister" placeholder="Enter password"><br/>
            		
            		
            	</form>            	
@@ -103,6 +120,18 @@
     	<!-- achievements -->
 		<div data-role="page" id="achievements_page">
 		</div>    
+    
+    
+    
+    <!-- dialog box -->
+    <div data-role="page" id="MessageBox">
+  		<div data-role="header">
+    		<h2>Dialog</h2>
+  		</div>
+  		<div data-role="content">
+   			<p>I am a dialog</p>
+  		</div>
+	</div>
     
     </body>
 </html>

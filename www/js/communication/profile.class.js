@@ -25,26 +25,18 @@ function ProfileCommunication(sock, resultFunction){
 	}
 	
 	function saveProfile()	{	
-		_this_.socket.emit('saveProfile',
-			{ 		  		
-		  		sex:gameData.playerData.sex,
-		  		age:gameData.playerData.age,
-		  		name:gameData.playerData.name,
-		  		surname:gameData.playerData.surname,
-		  		avatar:"",		
-		  		
-		  		playerID:gameData.playerID
+		_this_.socket.emit('saveProfile',{
+				profile:gameData.player.profile,	  		
+	  			playerID:gameData.player.playerID
 			}
-	  	);
+		);
 	}
 	
 	function saveContact(){	
 		_this_.socket.emit('saveContact',
 			{ 
-		  		email: gameData.playerContact.email,
-		  		mobile:gameData.playerContact.mobile,
-		  		
-		  		playerID:gameData.playerID
+		  		contact: gameData.player.contact,
+		  		playerID: gameData.player.playerID
 			}
 	  	);
 	}

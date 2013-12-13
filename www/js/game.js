@@ -8,6 +8,7 @@ var page = {
 	startPage:undefined,
 	profilePage:undefined,
 	gamePage:undefined,
+	registerPage:undefined,
 	
     initialize: function() {    	
     	if ( CORE.isDEVICE() ) 
@@ -30,23 +31,22 @@ var page = {
     },    
     bindEvents: function() {    	
     	//$(document).on('load', startpage.onDeviceReady, false);
-		this.onDeviceReady();
-		
-    },
-    
+		this.onDeviceReady();		
+    },    
        
     // deviceready Event Handler
     onDeviceReady: function() {    	
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
-    	gamePage=GamePage();
-    	gamePage.init();    
-    	startPage = StartPage(gamePage);
-    	startPage.init();   	
+    	this.gamePage=GamePage();
+    	this.gamePage.init();    
+    	
+    	this.startPage = StartPage();
+    	this.startPage.init();   	
     
-    	profilePage=ProfilePage();
-    	profilePage.init();
+    	this.profilePage=ProfilePage();
+    	this.profilePage.init();
     	
-    	
+    	this.registerPage=RegisterPage();
+    	this.registerPage.init();
     },       
-    
 };

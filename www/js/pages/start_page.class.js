@@ -3,9 +3,7 @@
  * Author: Krzysztof Owsiany 
  */
 
-function StartPage(g){
-	var game = g;
-	
+function StartPage(){	
 	function init(){
 		$(".login").on('click', onClickLogin);
     	$(".new_game").on('click', onClickNewGame);
@@ -17,18 +15,18 @@ function StartPage(g){
 	}
 	
     //navigation start page
-    function onClickNewGame() {    	
+    function onClickNewGame() { 	    	
     	gameData.newGame();
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 		gameState.setGameState(GAMESTATE.NEW);
-		game.unSigned();
+		page.gamePage.unSigned();
 		goGamePage();    	
     }    
     
     function onClickContinue()    {    	
     	//gameState.setPlayerState(PLAYERSTATE.SIGNED);
 		gameState.setGameState(GAMESTATE.CONTINUE);
-		game.unSigned();
+		page.gamePage.unSigned();
 		goGamePage();
     }
     
@@ -38,20 +36,19 @@ function StartPage(g){
 			function(id){    				
 				gameState.setPlayerState( PLAYERSTATE.SIGNED);
 				gameState.setGameState(GAMESTATE.CONTINUE);
-				gameData.setPlayerID(id);
+				gameData.data.player.playerID=id;
 
-				game.signed();    				
-				
+				page.gamePage.signed();    				
+				$("#MessageBox").dialog();
 				goGamePage();
 			},
 			//fail
 			function(){
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
-				gameData.setPlayerID(0);
-				
-				window.location = "#start_page";
-				alert("Logowanie błędne");
+				gameData.data.player.playerID=0;
+				$("#MessageBox").dialog();
+				window.location = "#start_page";			
 			}
     	);    	
     	

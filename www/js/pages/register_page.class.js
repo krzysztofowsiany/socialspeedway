@@ -8,14 +8,14 @@ function RegisterPage(){
 		$(".register").on('click', onClickRegister);		  	
 	}
     
-    function onClickRegister()    {	
+    function onClickRegister()    {    	
     	var r = new RegisterCommunication(CORE.SOCKET,
     		function () {
 				alert("Gracz zarejestrowany");
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
 				
-				gameData.setPlayerID(0);
+				gameData.data.player.playerID=0;
 				
 				window.location = "#start_page";
 				
@@ -26,10 +26,10 @@ function RegisterPage(){
 			}
 		);
     	
-    	
+    	alert($("#passwordRegister").val());
     	r.register(
-    			$("#login").val(),
-    			$("#password").val()    			
+    			$("#loginRegister").val(),
+    			$("#passwordRegister").val()    			
     		);    	
     	
     } 

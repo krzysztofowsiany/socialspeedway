@@ -15,7 +15,7 @@ function ProfilePage(){
     function onClickSaveContact()   {    	
     	setProfileContactFromValues();
     	
-    	if (gameData.playerID>0) {
+    	if (gameData.data.player.playerID>0) {
     		var p = new ProfileCommunication(CORE.SOCKET);
     		p.saveContact();    		
     	}
@@ -30,7 +30,7 @@ function ProfilePage(){
     function onClickSaveProfile(){    	
     	setProfilePlayerDataFromValues();
     	
-    	if (gameData.playerID>0) {
+    	if (gameData.data.player.playerID>0) {
     		var p = new ProfileCommunication(CORE.SOCKET);
        		p.saveProfile();
        		
@@ -42,23 +42,20 @@ function ProfilePage(){
      * set gameData from entered in html elements values of userdata
      */
     function setProfilePlayerDataFromValues(){
-    	gameData.setProfilePlayerData({
-			name:$("#name").val(), 
-			surname:$("#surname").val(),
-			age:$("#age").val(),
-			sex:$("#sex").val()
-		});
+    	gameData.data.player.profile.name = $("#name").val();
+    	gameData.data.player.profile.surname = $("#surname").val();
+    	gameData.data.player.profile.sex = $("#sex").val();
+    	gameData.data.player.profile.age = $("#age").val();    
+    	gameData.saveLocal();
     }
     /*
      * setProfileContactFromValues
      * set gameData from entered in html elements values of contact
      */
     function setProfileContactFromValues(){
-    	gameData.setProfileContact({
-			email:$("#email").val(), 
-			mobile:$("#mobile").val()
-			});
-    	
+    	gameData.data.player.contact.email=$("#email").val();
+    	gameData.data.player.contact.mobile=$("#mobile").val();
+    	gameData.saveLocal();
     }
     /*
      * setData
@@ -66,14 +63,14 @@ function ProfilePage(){
      * @params data
      */    
     function setData(data){    	
-    	$("#name").val(data.profile.name);
-    	$("#surname").val(data.profile.surname);
-    	$("#age").val(data.profile.age);
-    	$("#sex").val(data.profile.sex);    	
+    	$("#name").val(gameData.data.player.profile.name);
+    	$("#surname").val(gameData.data.player.profile.surname);
+    	$("#age").val(gameData.data.player.profile.age);
+    	$("#sex").val(gameData.data.player.profile.sex);    	
     	setProfilePlayerDataFromValues();
     	
-    	$("#email").val(data.profile.email);
-    	$("#mobile").val(data.profile.mobile);
+    	$("#email").val(gameData.data.player.contact.email);
+    	$("#mobile").val(gameData.data.player.contact.mobile);
     	setProfileContactFromValues();
     	
     }
@@ -83,16 +80,14 @@ function ProfilePage(){
      * get data from localstorage by gameData,
      * and set HTML elements 
      */
-    function setDataFromLocalStorage() {
-    	//console.log(gameData.playerData);
-    	$("#name").val(gameData.playerData.name);
-    	$("#surname").val(gameData.playerData.surname);
-    	$("#age").val(gameData.playerData.age);
-    	$("#sex").val(gameData.playerData.sex);    	
+    function setDataFromLocalStorage() {    	
+    	$("#name").val(gameData.data.player.profile.name);
+    	$("#surname").val(gameData.data.player.profile.surname);
+    	$("#age").val(gameData.data.player.profile.age);
+    	$("#sex").val(gameData.data.player.profile.sex);    	
     	    	
-    	$("#email").val(gameData.playerContact.email);
-    	$("#mobile").val(gameData.playerContact.mobile);
-    	
+    	$("#email").val(gameData.data.player.contact.email);
+    	$("#mobile").val(gameData.data.player.contact.mobile);    	
     }
     
     /*
@@ -100,9 +95,9 @@ function ProfilePage(){
      * load data from database if player are registered
      */
     function loadData(){    	
-    	if (gameData.playerID>0) {    		
+    	if (gameData.data.player.playerID>0) {    		
     		var p = new ProfileCommunication(CORE.SOCKET, setData);    		
-    		p.getData(gameData.playerID);
+    		p.getData(gameData.data.player.playerID);    		
     		
     	}
     	else setDataFromLocalStorage();      	    	    	
@@ -110,6 +105,7 @@ function ProfilePage(){
              
     
     return {
-    	init:init
+    	init:init,
+    	loadData:loadData
     };
 }

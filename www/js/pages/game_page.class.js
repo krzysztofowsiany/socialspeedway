@@ -29,6 +29,7 @@ function GamePage(){
     }
     
     function onClickProfile()    {    	
+    	page.profilePage.loadData();
     	window.location = "#profile_page";
     }
     
