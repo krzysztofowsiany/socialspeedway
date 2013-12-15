@@ -16,10 +16,10 @@ function LoginCommunication(sock, ok, fail)
 		}
 	}
 
-	function login(n, p) {
+	function login(e, p) {
 		_this_.socket.emit('login',
 			{ 
-		  		name: n,
+		  		email: e,
 		  		password:CryptoJS.MD5(p).toString(CryptoJS.enc.Hex)		  		
 			}
 	  	);		

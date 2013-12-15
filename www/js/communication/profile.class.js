@@ -5,7 +5,7 @@ function ProfileCommunication(sock, resultFunction){
 	this.socket.on('profile_result',result);
 	this.socket.on('resultData',resultData);
 	
-	this.socket.on('saveContactResult',saveContactResult);
+	
 	this.socket.on('saveProfileResult',saveProfileResult);
 	
 	function result (data)	{
@@ -16,9 +16,6 @@ function ProfileCommunication(sock, resultFunction){
 		_this_.resultFunction(data);
 	}
 	
-	function saveContactResult(data) {
-		alert("Kontakt zapisany");		
-	}
 	
 	function saveProfileResult(data) {
 		alert("Dane zapisane");
@@ -26,20 +23,12 @@ function ProfileCommunication(sock, resultFunction){
 	
 	function saveProfile()	{	
 		_this_.socket.emit('saveProfile',{
-				profile:gameData.player.profile,	  		
-	  			playerID:gameData.player.playerID
+				profile:gameData.data.player.profile,	  		
+	  			playerID:gameData.data.player.playerID
 			}
 		);
 	}
 	
-	function saveContact(){	
-		_this_.socket.emit('saveContact',
-			{ 
-		  		contact: gameData.player.contact,
-		  		playerID: gameData.player.playerID
-			}
-	  	);
-	}
 	
 	function getData(id)	{		
 		_this_.socket.emit('getData',
@@ -51,7 +40,7 @@ function ProfileCommunication(sock, resultFunction){
 
 	return {
 		getData:getData,
-		saveContact:saveContact,
+		
 		saveProfile:saveProfile		
 	}	
 }

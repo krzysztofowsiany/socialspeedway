@@ -26,7 +26,7 @@ function RegisterPage(){
 			}
 		);
     	
-    	alert($("#passwordRegister").val());
+    	
     	r.register(
     			$("#loginRegister").val(),
     			$("#passwordRegister").val()    			

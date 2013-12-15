@@ -26,7 +26,7 @@ function StartPage(){
     function onClickContinue()    {    	
     	//gameState.setPlayerState(PLAYERSTATE.SIGNED);
 		gameState.setGameState(GAMESTATE.CONTINUE);
-		page.gamePage.unSigned();
+		//page.gamePage.unSigned();
 		goGamePage();
     }
     
@@ -38,7 +38,7 @@ function StartPage(){
 				gameState.setGameState(GAMESTATE.CONTINUE);
 				gameData.data.player.playerID=id;
 
-				page.gamePage.signed();    				
+				//page.gamePage.signed();    				
 				$("#MessageBox").dialog();
 				goGamePage();
 			},

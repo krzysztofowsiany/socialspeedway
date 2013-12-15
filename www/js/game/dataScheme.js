@@ -6,10 +6,7 @@ var dataScheme = {
 		  'surname':'',
 		  'age':0,
 		  'sex':0,
-	  },
-	  'contact':{
-		  'email':'',
-		  'mobile':'', 
+		  'mobile':'',
 	  }, 
 	  'skills': {
 		  'speed':0,

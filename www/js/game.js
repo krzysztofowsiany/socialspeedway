@@ -9,6 +9,7 @@ var page = {
 	profilePage:undefined,
 	gamePage:undefined,
 	registerPage:undefined,
+	trainingPage:undefined,
 	
     initialize: function() {    	
     	if ( CORE.isDEVICE() ) 
@@ -48,5 +49,9 @@ var page = {
     	
     	this.registerPage=RegisterPage();
     	this.registerPage.init();
+    	
+    	
+    	this.trainingPage=TrainingPage();
+    	this.trainingPage.init();
     },       
 };

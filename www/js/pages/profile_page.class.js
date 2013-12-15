@@ -6,7 +6,7 @@
 function ProfilePage(){
 	function init(){    	
     	$(".saveProfile").on('click', onClickSaveProfile);
-    	$(".saveContact").on('click', onClickSaveContact); 
+    	 
     	
     	loadData();
 	}	
@@ -46,33 +46,24 @@ function ProfilePage(){
     	gameData.data.player.profile.surname = $("#surname").val();
     	gameData.data.player.profile.sex = $("#sex").val();
     	gameData.data.player.profile.age = $("#age").val();    
+    	gameData.data.player.profile.mobile = $("#mobile").val();
     	gameData.saveLocal();
     }
-    /*
-     * setProfileContactFromValues
-     * set gameData from entered in html elements values of contact
-     */
-    function setProfileContactFromValues(){
-    	gameData.data.player.contact.email=$("#email").val();
-    	gameData.data.player.contact.mobile=$("#mobile").val();
-    	gameData.saveLocal();
-    }
+    
     /*
      * setData
      * set data to HTML elements from JSON format data (database)
      * @params data
      */    
-    function setData(data){    	
-    	$("#name").val(gameData.data.player.profile.name);
-    	$("#surname").val(gameData.data.player.profile.surname);
-    	$("#age").val(gameData.data.player.profile.age);
-    	$("#sex").val(gameData.data.player.profile.sex);    	
-    	setProfilePlayerDataFromValues();
+    function setData(data){
+    	gameData.data.player.profile.name = data.profile.name;
+    	gameData.data.player.profile.surname = data.profile.surname;
+    	gameData.data.player.profile.age = data.profile.age;
+    	gameData.data.player.profile.sex = data.profile.sex;    	
+    	gameData.data.player.profile.mobile = data.profile.mobile;
     	
-    	$("#email").val(gameData.data.player.contact.email);
-    	$("#mobile").val(gameData.data.player.contact.mobile);
-    	setProfileContactFromValues();
     	
+    	setDataFromLocalStorage();    	
     }
     
     /*
@@ -84,10 +75,9 @@ function ProfilePage(){
     	$("#name").val(gameData.data.player.profile.name);
     	$("#surname").val(gameData.data.player.profile.surname);
     	$("#age").val(gameData.data.player.profile.age);
-    	$("#sex").val(gameData.data.player.profile.sex);    	
-    	    	
-    	$("#email").val(gameData.data.player.contact.email);
-    	$("#mobile").val(gameData.data.player.contact.mobile);    	
+    	$("#sex").val(gameData.data.player.profile.sex);
+    	$("#mobile").val(gameData.data.player.profile.mobile); 
+    	    	    	
     }
     
     /*

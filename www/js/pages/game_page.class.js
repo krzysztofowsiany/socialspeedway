@@ -11,6 +11,11 @@ function GamePage(){
     	$(".achievements").on('click', onClickAchievements);
     	$(".badges").on('click', onClickBadges);
     	$(".training").on('click', onClickTraining);
+    	
+    	if (gameState.isSigned())
+    		signed();
+    	else
+    		unSigned();
 	}
 	
 	function signed(){		
@@ -48,7 +53,7 @@ function GamePage(){
     function onClickLogout() {
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
     	gameState.setGameState(GAMESTATE.NEW);
-    	gameData.setPlayerID(0);
+    	gameData.data.player.playerID = 0;
     	window.location = "#start_page";
     }
     
