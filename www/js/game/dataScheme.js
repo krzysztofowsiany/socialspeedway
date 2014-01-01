@@ -1,6 +1,7 @@
 var dataScheme = {
   'player': {	  
-	  'playerID':undefined,	  
+	  'playerID':undefined,
+	  'state':0,	  
 	  'profile':{
 		  'name':'',
 		  'surname':'',
@@ -14,8 +15,17 @@ var dataScheme = {
 		  'endurance':0,
 		  'strength':0
 	  },
+	  'training':{
+		  'endTime':undefined,
+		  'trainingType':0,
+		  'trainingLevel':0,
+		  'trainingStart':0
+	  },
 	  'achievements':[],
 	  'badges':[],
+  },
+  'game':{
+	  'state':0
   }
   
 };

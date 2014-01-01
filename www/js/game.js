@@ -38,20 +38,20 @@ var page = {
     // deviceready Event Handler
     onDeviceReady: function() {    	
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
-    	this.gamePage=GamePage();
-    	this.gamePage.init();    
+    	page.gamePage=GamePage();
+    	page.gamePage.init();    
     	
-    	this.startPage = StartPage();
-    	this.startPage.init();   	
+    	page.startPage = StartPage();
+    	page.startPage.init();   	
     
-    	this.profilePage=ProfilePage();
-    	this.profilePage.init();
+    	page.profilePage=ProfilePage();
+    	page.profilePage.init();
     	
-    	this.registerPage=RegisterPage();
-    	this.registerPage.init();
+    	page.registerPage=RegisterPage();
+    	page.registerPage.init();
     	
     	
-    	this.trainingPage=TrainingPage();
-    	this.trainingPage.init();
+    	page.trainingPage=TrainingPage();
+    	page.trainingPage.init();
     },       
 };

@@ -46,7 +46,8 @@ function GamePage(){
     	window.location = "#badges_page";
     }
     
-    function onClickTraining()    {    	
+    function onClickTraining()    {  
+    	page.trainingPage.resumeTraining();
     	window.location = "#training_page";
     }
     

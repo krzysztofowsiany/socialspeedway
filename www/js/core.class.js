@@ -11,9 +11,9 @@ var CORE = {
 		 * SERVER URL,
 		 */
 		//local server
-		this.SERVER_URL = "http://localhost:8080";
+		//this.SERVER_URL = "http://localhost:8080";
 		//remote server
-		//	this.SERVER_URL = "http://socialspeedway.com:8080";
+			this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
 		if (this.isDEVICE())
@@ -38,6 +38,7 @@ var CORE = {
 						CORE.loadScript("js/game/dataScheme.js", function(){
 						CORE.loadScript("js/game/gameState.class.js", function(){
 							CORE.loadScript("js/game/gameData.class.js", function(){
+								CORE.loadScript("js/game/trainingParams.js", function(){
 						
 								//communication
 								CORE.loadScript("js/communication/login.class.js", function(){
@@ -60,7 +61,7 @@ var CORE = {
 																		});
 																	});
 																});	
-																
+														});
 															});	
 														});	
 													});
@@ -108,6 +109,26 @@ var CORE = {
 		//if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Opera Mobile|Kindle|Windows Phone|PSP|AvantGo|Atomic Web Browser|Blazer|Chrome Mobile|Dolphin|Dolfin|Doris|GO Browser|Jasmine|MicroB|Mobile Firefox|Mobile Safari|Mobile Silk|Motorola Internet Browser|NetFront|NineSky|Nokia Web Browser|Obigo|Openwave Mobile Browser|Palm Pre web browser|Polaris|PS Vita browser|Puffin|QQbrowser|SEMC Browser|Skyfire|Tear|TeaShark|UC Browser|uZard Web|wOSBrowser|Yandex.Browser mobile/i.test(navigator.userAgent) && confirm('Are you on a mobile device?')) isMobile = true;
 		//return navigator.userAgent.search("mobile")>0;
 		return ('ontouchstart' in document.documentElement);
+	},
+
+	numberEnding:function (number) { //todo: replace with a wiser code
+		if (number>0) return (number > 9) ? number : '0'+number;		
+		else return '00';			
+        
+    },	
+	getTimeInLogicView:function (time) {		
+		x =Math.floor(time / 1000);		
+	    seconds = Math.round(x % 60);	    
+	    
+	    x = Math.floor(x/ 60);	    
+	    minutes = Math.round(x % 60);
+	    
+	    hours = Math.floor(x / 60);
+	    
+	    
+		return CORE.numberEnding(hours) +':'
+			+ CORE.numberEnding(minutes) +':'
+			+ CORE.numberEnding(seconds);
 	}
 };
 

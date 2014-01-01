@@ -1,7 +1,7 @@
 var PLAYERSTATE = {
-    SIGNED : 0,
+    SIGNED : 2,
     GUEST : 1,
-    UNSIGNED : 2
+    UNSIGNED : 0
 };
 
 var GAMESTATE = {
@@ -9,35 +9,27 @@ var GAMESTATE = {
     CONTINUE : 1    
 };
 
-var gameState = {	
-	playerState:localStorage.getItem("playerState"),
-	gameState:localStorage.getItem("gameState"),
-	
-	
+var gameState = {
 	isSigned:function () {
-		return this.playerState == PLAYERSTATE.SIGNED;
+		return gameData.data.player.state == PLAYERSTATE.SIGNED;
 	},
 	
 	isGuest: function () {
-		return this.playerState == PLAYERSTATE.GUEST;
+		return gameData.data.player.state == PLAYERSTATE.GUEST;
 	},
 	
-	/*
-	 * 
+	/* 
 	 */	
 	
 	setPlayerState: function (newState) {
-		this.playerState = newState;
-		localStorage.setItem("playerState", this.playerState );
+		gameData.data.player.state = newState;
+		gameData.saveLocal();
 	},
 	
 	setGameState: function (newState) {
-		this.gameState = newState;
-		localStorage.setItem("gameState", this.gameState );
+		gameData.data.game.state = newState;
+		gameData.saveLocal();
 	}
-	
-	
-	
 };
 
 

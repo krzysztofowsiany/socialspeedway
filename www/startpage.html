@@ -116,38 +116,43 @@
   			<div id="new_training">
 			    <fieldset data-role="controlgroup">
 			    	<legend>Chose a training</legend>
-			         	<input type="radio" name="trainingType" id="radio-choice-1" value="1" checked="checked" />
+			         	<input type="radio" name="trainingType" id="radio-choice-1" value="0" checked="checked" />
 			         	<label for="radio-choice-1">Strength</label>
 			
-			         	<input type="radio" name="trainingType" id="radio-choice-2" value="2"  />
+			         	<input type="radio" name="trainingType" id="radio-choice-2" value="1"  />
 			         	<label for="radio-choice-2">Agility</label>
 			
-			         	<input type="radio" name="trainingType" id="radio-choice-3" value="3"  />
+			         	<input type="radio" name="trainingType" id="radio-choice-3" value="2"  />
 			         	<label for="radio-choice-3">Speed</label>
 			
-			         	<input type="radio" name="trainingType" id="radio-choice-4" value="4"  />
+			         	<input type="radio" name="trainingType" id="radio-choice-4" value="3"  />
 			         	<label for="radio-choice-4">Endurance</label>
 			    </fieldset>
 			    
 			     <fieldset data-role="controlgroup" data-type="horizontal">
 			    	<legend>Chose time</legend>
-			         	<input type="radio" name="trainingTime" id="radio-choice-1" value="1" checked="checked" />
-			         	<label for="radio-choice-1">1 hour</label>
+			         	<input type="radio" name="trainingLevel" id="radio-choice-1" value="0" checked="checked" />
+			         	<label for="radio-choice-1">1 hour (+10)</label>
 			
-			         	<input type="radio" name="trainingTime" id="radio-choice-2" value="2"  />
-			         	<label for="radio-choice-2">2 hours</label>
+			         	<input type="radio" name="trainingLevel" id="radio-choice-2" value="1"  />
+			         	<label for="radio-choice-2">2 hours (+18)</label>
 			
-			         	<input type="radio" name="trainingTime" id="radio-choice-3" value="3"  />
-			         	<label for="radio-choice-3">4 hours</label>
+			         	<input type="radio" name="trainingLevel" id="radio-choice-3" value="2"  />
+			         	<label for="radio-choice-3">4 hours (+32)</label>
 			
-			         	<input type="radio" name="trainingTime" id="radio-choice-4" value="4"  />
-			         	<label for="radio-choice-4">8 hours</label>
+			         	<input type="radio" name="trainingLevel" id="radio-choice-4" value="3"  />
+			         	<label for="radio-choice-4">8 hours (+56)</label>
 			    </fieldset>
 				<button class="startTraining">Start</button>
 			  			
   			</div>
   			<div id="training_in_progress">
-  			training in progres
+  			Training in progres<br/>
+  			<b>Type </b><span id="trainingType"></span><br/>
+  			<b>Bonus </b><span id="trainingBonus"></span><br/>
+  			<b>Time to end </b><span id="trainingLeft"></span><br/>
+  			
+  			
   			<button class="stopTraining">Stop</button>
   			</div>
 		</div>
