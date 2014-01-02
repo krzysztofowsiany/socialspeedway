@@ -13,7 +13,9 @@
        		CORE.init(function() {
 				CORE.loadScript("js/game.js",function(){
 					
+					CORE.LOG =new RemoteLog(CORE.ID, CORE.VERSION);	
 					page.initialize();
+					
 					});
         	});
         </script>

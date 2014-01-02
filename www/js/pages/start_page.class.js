@@ -11,7 +11,8 @@ function StartPage(){
 	}
 	
 	function goGamePage() {
-		window.location = "#game_page";
+		$.mobile.changePage("#game_page");
+		CORE.LOG.addInfo("START_PAGE:onGamePage");
 	}
 	
     //navigation start page
@@ -20,7 +21,8 @@ function StartPage(){
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 		gameState.setGameState(GAMESTATE.NEW);
 		page.gamePage.unSigned();
-		goGamePage();    	
+		goGamePage();    
+		CORE.LOG.addInfo("START_PAGE:onClickNewGame");
     }    
     
     function onClickContinue()    {    	
@@ -28,6 +30,7 @@ function StartPage(){
 		gameState.setGameState(GAMESTATE.CONTINUE);
 		//page.gamePage.unSigned();
 		goGamePage();
+		CORE.LOG.addInfo("START_PAGE:onClickContinue");
     }
     
     function onClickLogin()    {
@@ -48,7 +51,7 @@ function StartPage(){
 				gameState.setGameState(GAMESTATE.NEW);
 				gameData.data.player.playerID=0;
 				$("#MessageBox").dialog();
-				window.location = "#start_page";			
+				$.mobile.changePage("#start_page");			
 			}
     	);    	
     	
@@ -56,7 +59,7 @@ function StartPage(){
     			$("#login").val(),
     			$("#password").val()    			
     		);    	    	
-    	
+    	CORE.LOG.addInfo("START_PAGE:onClickLogin");
     }
     
     return {

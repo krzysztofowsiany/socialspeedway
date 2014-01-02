@@ -1,35 +1,34 @@
-var RemoteLog=RemoteLog||function(id, version){
-	var INFO = 30,
-		WARNING = 20,
-		ERROR = 10,
-		CRITICAL=0,
+function RemoteLog(id, version){
+	this.INFO = 30;
+	this.WARNING = 20;
+	this.ERROR = 10;
+	this.CRITICAL=0;
 		
-		ID = id,
-		ver = version;
+	this.ID = id;
+	this.ver = version;
+	this.URL="http://localhost:8000/data/";
 		
-	
-	this.URL="";
-	
-	this.addError = function(message) {
-		this.addLog(message, ERROR);
-	}
-	
-
-	this.addCritical = function(message) {
-		this.addLog(message, CRITICAL);
-	}
-	
-
-	this.addInfo = function(message) {
-		this.addLog(message, INFO);
-	}
-	
-	this.addWarning = function(message) {
-		this.addLog(message, WARNING);
-	}
-	
 	this.addLog = function(message, msg_level)	{
-		//jquery
-		$.post( this.URL, { id: ID, version: ver,msg:message, msg_l:msg_level } );		
-	}	
+		var link = "http://remotelog.socialspeedway.com/addGetLog/"+this.ID+"/"+msg_level	+"/"+encodeURIComponent(message);
+		$.get( link);					
+	};
 }
+
+RemoteLog.prototype.addError = function(message) {
+		this.addLog(message, this.ERROR);
+	};
+	
+
+RemoteLog.prototype.addCritical = function(message) {
+		this.addLog(message, this.CRITICAL);
+	};
+	
+
+RemoteLog.prototype.addInfo = function(message) {	
+		this.addLog(message, this.INFO);
+	};
+	
+RemoteLog.prototype.addWarning = function(message) {
+		this.addLog(message, this.WARNING);
+	};
+

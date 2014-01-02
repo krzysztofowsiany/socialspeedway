@@ -7,6 +7,8 @@ var CORE = {
 	SOCKET:undefined,
 	SERVER_URL :"http://localhost:8080",
 	LOG:undefined,
+	ID:1,
+	VERSION:0.1,
 	init:function(subLoad) {
 		/**
 		 * SERVER URL,
@@ -17,12 +19,13 @@ var CORE = {
 			this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
-		if (this.isDEVICE())
+		if (this.isDEVICE()) {
 			//local			
 			//this.SERVER_URL = "http://10.0.2.2:8080";
 			//remote
 			this.SERVER_URL = "http://socialspeedway.com:8080";
-		
+			this.ID=2;
+		}
 		/**
 		 * default includes
 		 */
@@ -61,8 +64,7 @@ var CORE = {
 																			subLoad();
 																		
 																		//set log param
-																		this.LOG = RemoteLog(1, 0.1);
-																		
+																																			
 																		});
 																	});
 																});	

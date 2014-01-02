@@ -30,32 +30,34 @@ function GamePage(){
     
     //navigation
     function onClickRegister()    {    	
-    	window.location = "#register_page";
+    	event.preventDefault();
+    	$.mobile.changePage("#register_page", "flip");
     }
     
     function onClickProfile()    {    	
     	page.profilePage.loadData();
-    	window.location = "#profile_page";
+    	event.preventDefault();
+    	$.mobile.changePage("#profile_page", "flip");
     }
     
     function onClickAchievements()    {    	
-    	window.location = "#achievements_page";
+    	$.mobile.changePage("#achievements_page", "flip");
     }
     
     function onClickBadges()    {    	
-    	window.location = "#badges_page";
+    	$.mobile.changePage("#badges_page", "flip");
     }
     
     function onClickTraining()    {  
     	page.trainingPage.resumeTraining();
-    	window.location = "#training_page";
+    	$.mobile.changePage("#training_page", "flip");
     }
     
     function onClickLogout() {
     	gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
     	gameState.setGameState(GAMESTATE.NEW);
     	gameData.data.player.playerID = 0;
-    	window.location = "#start_page";
+    	$.mobile.changePage("#start_page", "flip");
     }
     
     return {
