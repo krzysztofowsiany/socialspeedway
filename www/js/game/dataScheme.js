@@ -17,7 +17,7 @@ var dataScheme = {
 	  },
 	  'training':{
 		  'endTime':undefined,
-		  'trainingType':0,
+		  'trainingType':-1,
 		  'trainingLevel':0,
 		  'trainingStart':0
 	  },

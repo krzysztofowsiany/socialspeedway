@@ -119,31 +119,31 @@
 			    <fieldset data-role="controlgroup">
 			    	<legend>Chose a training</legend>
 			         	<input type="radio" name="trainingType" id="radio-choice-1" value="0" checked="checked" />
-			         	<label for="radio-choice-1">Strength</label>
+			         	<label for="radio-choice-1">Strength (<span id="strengthValue">2</span>)</label>
 			
 			         	<input type="radio" name="trainingType" id="radio-choice-2" value="1"  />
-			         	<label for="radio-choice-2">Agility</label>
+			         	<label for="radio-choice-2">Agility (<span id="agilityValue">2</span>)</label>
 			
 			         	<input type="radio" name="trainingType" id="radio-choice-3" value="2"  />
-			         	<label for="radio-choice-3">Speed</label>
+			         	<label for="radio-choice-3">Speed (<span id="speedValue">2</span>)</label>
 			
 			         	<input type="radio" name="trainingType" id="radio-choice-4" value="3"  />
-			         	<label for="radio-choice-4">Endurance</label>
+			         	<label for="radio-choice-4">Endurance (<span id="enduranceValue">2</span>)</label>
 			    </fieldset>
 			    
 			     <fieldset data-role="controlgroup" data-type="horizontal">
 			    	<legend>Chose time</legend>
 			         	<input type="radio" name="trainingLevel" id="radio-choice-1" value="0" checked="checked" />
-			         	<label for="radio-choice-1">1 hour (+10)</label>
+			         	<label for="radio-choice-1">1 h</br>+10</label>
 			
 			         	<input type="radio" name="trainingLevel" id="radio-choice-2" value="1"  />
-			         	<label for="radio-choice-2">2 hours (+18)</label>
+			         	<label for="radio-choice-2">2 h</br>+18</label>
 			
 			         	<input type="radio" name="trainingLevel" id="radio-choice-3" value="2"  />
-			         	<label for="radio-choice-3">4 hours (+32)</label>
+			         	<label for="radio-choice-3">4 h</br>+32</label>
 			
 			         	<input type="radio" name="trainingLevel" id="radio-choice-4" value="3"  />
-			         	<label for="radio-choice-4">8 hours (+56)</label>
+			         	<label for="radio-choice-4">8 h</br>+56</label>
 			    </fieldset>
 				<button class="startTraining">Start</button>
 			  			
@@ -163,12 +163,12 @@
 		</div>    
     
     <!-- dialog box -->
-    <div data-role="page" id="MessageBox">
-  		<div data-role="header">
-    		<h2>Dialog</h2>
+    <div data-role="dialog" id="MessageBox">
+  		<div data-role="header" id="MessageBoxTitle">
+    		
   		</div>
-  		<div data-role="content">
-   			<p>I am a dialog</p>
+  		<div data-role="content" id="MessageBoxMessage">
+   			
   		</div>
 	</div>
     

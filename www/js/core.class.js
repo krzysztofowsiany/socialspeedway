@@ -39,38 +39,40 @@ var CORE = {
 					CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js", function(){		
 						CORE.loadScript("js/libs/RemoteLog.class.js", function(){
 						
-						//game state
-						CORE.loadScript("js/game/dataScheme.js", function(){
-						CORE.loadScript("js/game/gameState.class.js", function(){
-							CORE.loadScript("js/game/gameData.class.js", function(){
-								CORE.loadScript("js/game/trainingParams.js", function(){
-						
-								//communication
-								CORE.loadScript("js/communication/login.class.js", function(){
-									CORE.loadScript("js/communication/profile.class.js", function(){
-										CORE.loadScript("js/communication/register.class.js", function(){
-										
-											//pages
-											CORE.loadScript("js/pages/start_page.class.js", function(){
-												CORE.loadScript("js/pages/profile_page.class.js", function(){
-													CORE.loadScript("js/pages/game_page.class.js", function(){		        
-														CORE.loadScript("js/pages/register_page.class.js", function(){			
-															CORE.loadScript("js/pages/training_page.class.js", function(){
-																CORE.loadScript("js/pages/achievements_page.class.js", function(){
-																	CORE.loadScript("js/pages/badges_page.class.js", function(){
-																		if (CORE.isDEVICE()) 
-																			CORE.loadScript("cordova.js",function(){subLoad();});
-																		else
-																			subLoad();
-																		
-																		//set log param
-																																			
+							//game state
+							CORE.loadScript("js/game/dataScheme.js", function(){
+								CORE.loadScript("js/game/gameState.class.js", function(){
+									CORE.loadScript("js/game/gameData.class.js", function(){
+										CORE.loadScript("js/game/trainingParams.js", function(){
+							
+											//communication
+											CORE.loadScript("js/communication/login.class.js", function(){
+												CORE.loadScript("js/communication/profile.class.js", function(){
+													CORE.loadScript("js/communication/register.class.js", function(){
+														CORE.loadScript("js/communication/gameProfile.class.js", function(){
+											
+															//	pages
+															CORE.loadScript("js/pages/start_page.class.js", function(){
+																CORE.loadScript("js/pages/profile_page.class.js", function(){
+																	CORE.loadScript("js/pages/game_page.class.js", function(){		        
+																		CORE.loadScript("js/pages/register_page.class.js", function(){			
+																			CORE.loadScript("js/pages/training_page.class.js", function(){
+																				CORE.loadScript("js/pages/achievements_page.class.js", function(){
+																					CORE.loadScript("js/pages/badges_page.class.js", function(){
+																						if (CORE.isDEVICE()) 
+																							CORE.loadScript("cordova.js",function(){subLoad();});
+																						else
+																							subLoad();
+																			
+																			//set log param
+																																				
+																					});
+																				});
+																			});	
 																		});
 																	});
-																});	
-														});
-															});
-												});	
+																});												
+															});		
 														});	
 													});
 												}); 
@@ -137,6 +139,11 @@ var CORE = {
 		return CORE.numberEnding(hours) +':'
 			+ CORE.numberEnding(minutes) +':'
 			+ CORE.numberEnding(seconds);
+	},
+	showDialog:function(message) {
+		$("#MessageBox").dialog();
+		$("#MessageBoxMessage").html('SPAM and EGGS!')
+		//alert(message);
 	}
 };
 

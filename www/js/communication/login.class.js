@@ -8,6 +8,7 @@ function LoginCommunication(sock, ok, fail)
 
 
 	function result(data)	{
+		CORE.LOG.addInfo("LOGIN_COMMUNICATION:result");
 		if (data['login_result'] > 0)	{			
 			_this_.okFunction(data['login_result']);
 		}
@@ -17,6 +18,7 @@ function LoginCommunication(sock, ok, fail)
 	}
 
 	function login(e, p) {
+		CORE.LOG.addInfo("LOGIN_COMMUNICATION:login");
 		_this_.socket.emit('login',
 			{ 
 		  		email: e,

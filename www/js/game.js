@@ -43,26 +43,26 @@ var page = {
     	
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
     	
-    	CORE.LOG.addInfo("GAME:onDeviceReady - init connection");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-init connection");
     	
     	page.gamePage=GamePage();
     	page.gamePage.init();
-    	CORE.LOG.addInfo("GAME:onDeviceReady - GamePage");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-GamePage");
     	
     	page.startPage = StartPage();
     	page.startPage.init();   	
-    	CORE.LOG.addInfo("GAME:onDeviceReady - StartPage");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-StartPage");
     
     	page.profilePage=ProfilePage();
     	page.profilePage.init();
-    	CORE.LOG.addInfo("GAME:onDeviceReady - ProfilePage");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-ProfilePage");
     	
     	page.registerPage=RegisterPage();
     	page.registerPage.init();
-    	CORE.LOG.addInfo("GAME:onDeviceReady - RegisterPage");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-RegisterPage");
     	
     	page.trainingPage=TrainingPage();
     	page.trainingPage.init();
-    	CORE.LOG.addInfo("GAME:onDeviceReady - TrainingPage");
+    	CORE.LOG.addInfo("GAME:onDeviceReady-TrainingPage");
     },       
 };

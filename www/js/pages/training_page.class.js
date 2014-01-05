@@ -79,7 +79,8 @@ function TrainingPage() {
 			break;
 		
 		}
-		alert("Training Done");
+		
+		CORE.showDialog("Training Done");
 		
 		onStopTraining();
 	}
@@ -87,11 +88,17 @@ function TrainingPage() {
 	function onStopTraining(){
 		gameData.data.player.training.trainingType=-1;
 		gameData.saveLocal();
-	
+		
+		
+		//save remote data
+		page.gamePage.saveGameProfileData();
+		
 		setTrainingVisiblity();			
 	}
 	
 	function showActualTraining(){
+		
+		
 		
 		$("#trainingType").html(training.name);
 
@@ -102,8 +109,16 @@ function TrainingPage() {
 				));		
 	}
 	
+	function setSkills(){
+		$("#strengthValue").html(gameData.data.player.skills.strength);
+		$("#agilityValue").html(gameData.data.player.skills.agility);
+		$("#speedValue").html(gameData.data.player.skills.speed);
+		$("#enduranceValue").html(gameData.data.player.skills.endurance);
+	}
+	
 	function onResumeTraining(){		
 		setTrainingVisiblity();
+		setSkills();
 		if (gameData.data.player.training.trainingType>-1) {
 			getTrainingParams();
 			

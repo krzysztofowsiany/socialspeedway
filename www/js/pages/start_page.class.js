@@ -40,9 +40,9 @@ function StartPage(){
 				gameState.setPlayerState( PLAYERSTATE.SIGNED);
 				gameState.setGameState(GAMESTATE.CONTINUE);
 				gameData.data.player.playerID=id;
-
+				page.gamePage.loadGameProfileData();
 				//page.gamePage.signed();    				
-				$("#MessageBox").dialog();
+				
 				goGamePage();
 			},
 			//fail
@@ -50,7 +50,7 @@ function StartPage(){
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
 				gameData.data.player.playerID=0;
-				$("#MessageBox").dialog();
+				
 				$.mobile.changePage("#start_page");			
 			}
     	);    	

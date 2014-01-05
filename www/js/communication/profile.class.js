@@ -12,16 +12,19 @@ function ProfileCommunication(sock, resultFunction){
 		
 	}
 	
-	function resultData(data)	{		
-		_this_.resultFunction(data);
+	function resultData(data)	{	
+		CORE.LOG.addInfo("PROFILE_COMMUNICATION:resultData");
+		_this_.resultFunction(data.profile);
 	}
 	
 	
 	function saveProfileResult(data) {
+		CORE.LOG.addInfo("PROFILE_COMMUNICATION:saveProfileResult");
 		alert("Dane zapisane");
 	}
 	
-	function saveProfile()	{	
+	function saveProfile()	{
+		CORE.LOG.addInfo("PROFILE_COMMUNICATION:saveProfile");
 		_this_.socket.emit('saveProfile',{
 				profile:gameData.data.player.profile,	  		
 	  			playerID:gameData.data.player.playerID
@@ -30,7 +33,8 @@ function ProfileCommunication(sock, resultFunction){
 	}
 	
 	
-	function getData(id)	{		
+	function getData(id)	{	
+		CORE.LOG.addInfo("PROFILE_COMMUNICATION:getData");
 		_this_.socket.emit('getData',
 			{ 		
 		  		playerID:id
