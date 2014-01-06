@@ -14,9 +14,9 @@ var CORE = {
 		 * SERVER URL,
 		 */
 		//local server
-		//this.SERVER_URL = "http://localhost:8080";
+		this.SERVER_URL = "http://localhost:8080";
 		//remote server
-			this.SERVER_URL = "http://socialspeedway.com:8080";
+		//	this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
 		if (this.isDEVICE()) {
@@ -26,52 +26,61 @@ var CORE = {
 			this.SERVER_URL = "http://socialspeedway.com:8080";
 			this.ID=2;
 		}
+
 		/**
 		 * default includes
 		 */
-
-		
-      	
-      	CORE.loadScript("js/libs/md5.js", function(){
+		CORE.loadScript("js/libs/md5.js", function(){
       		//library
       		CORE.loadScript("js/libs/jquery.min.js", function(){
 				CORE.loadScript("js/libs/jquery.mobile-1.3.2.min.js", function(){
 					CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js", function(){		
 						CORE.loadScript("js/libs/RemoteLog.class.js", function(){
-						
-							//game state
-							CORE.loadScript("js/game/dataScheme.js", function(){
-								CORE.loadScript("js/game/gameState.class.js", function(){
-									CORE.loadScript("js/game/gameData.class.js", function(){
-										CORE.loadScript("js/game/trainingParams.js", function(){
 							
-											//communication
-											CORE.loadScript("js/communication/login.class.js", function(){
-												CORE.loadScript("js/communication/profile.class.js", function(){
-													CORE.loadScript("js/communication/register.class.js", function(){
-														CORE.loadScript("js/communication/gameProfile.class.js", function(){
-											
-															//	pages
-															CORE.loadScript("js/pages/start_page.class.js", function(){
-																CORE.loadScript("js/pages/profile_page.class.js", function(){
-																	CORE.loadScript("js/pages/game_page.class.js", function(){		        
-																		CORE.loadScript("js/pages/register_page.class.js", function(){			
-																			CORE.loadScript("js/pages/training_page.class.js", function(){
-																				CORE.loadScript("js/pages/achievements_page.class.js", function(){
-																					CORE.loadScript("js/pages/badges_page.class.js", function(){
-																						if (CORE.isDEVICE()) 
-																							CORE.loadScript("cordova.js",function(){subLoad();});
-																						else
-																							subLoad();
-																			
-																			//set log param
-																																				
+							//authentication
+							CORE.loadScript("js/Game/Auth/login.class.js", function(){
+								CORE.loadScript("js/Game/Auth/register.class.js", function(){		
+									
+									//synchronization
+									CORE.loadScript("js/Game/Synchronization/ProfileSynchronize.class.js", function(){													
+										CORE.loadScript("js/Game/Synchronization/SkillsSynchronize.class.js", function(){
+											CORE.loadScript("js/Game/Synchronization/TrainingSynchronize.class.js", function(){
+												CORE.loadScript("js/Game/Synchronization/BadgesSynchronize.class.js", function(){
+													CORE.loadScript("js/Game/Synchronization/AchievementsSynchronize.class.js", function(){
+														
+														CORE.loadScript("js/Game/Synchronization/Synchronize.class.js", function(){
+														
+															//game state
+															CORE.loadScript("js/Game/dataScheme.js", function(){
+																CORE.loadScript("js/Game/gameState.class.js", function(){
+																	CORE.loadScript("js/Game/gameData.class.js", function(){
+																		CORE.loadScript("js/Game/trainingParams.js", function(){
+															
+																			//	pages
+																			CORE.loadScript("js/Game/Pages/start.class.js", function(){
+																				CORE.loadScript("js/Game/Pages/profile.class.js", function(){
+																					CORE.loadScript("js/Game/Pages/game.class.js", function(){		        
+																						CORE.loadScript("js/Game/Pages/register.class.js", function(){			
+																							CORE.loadScript("js/Game/Pages/training.class.js", function(){
+																								CORE.loadScript("js/Game/Pages/achievements.class.js", function(){
+																									CORE.loadScript("js/Game/Pages/badges.class.js", function(){
+																										if (CORE.isDEVICE()) 
+																											CORE.loadScript("cordova.js",function(){subLoad();});
+																										else
+																											subLoad();
+																							
+																							//set log param
+																																								
+																									});
+																								});
+																							});	
+																						});
 																					});
 																				});
-																			});	
+																			});
 																		});
-																	});
-																});												
+																	});																		
+																});
 															});		
 														});	
 													});
@@ -92,24 +101,25 @@ var CORE = {
 		
 	},
 
-	loadScript:function(url, callback){
+	loadScript:function(url, callback){		
 		var script = document.createElement("script")
 		script.type = "text/javascript";
 	
 		if (script.readyState){ //IE
 			script.onreadystatechange = function(){
-				if (script.readyState == "loaded" ||
-						script.readyState == "complete"){
+				if (script.readyState == "loaded" || script.readyState == "complete"){
 					script.onreadystatechange = null;
 					callback();
 				}
+				
 			};
 		} else { //Others
 			script.onload = function(){
 				callback();
 			};
 		}
-	
+		
+		//console.log(url);
 		script.src = url;
 		document.getElementsByTagName("head")[0].appendChild(script);
 	},

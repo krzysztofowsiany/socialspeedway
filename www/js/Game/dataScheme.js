@@ -26,6 +26,13 @@ var dataScheme = {
   },
   'game':{
 	  'state':0
+  },
+  'synch':{
+	  'profile':0,
+	  'skills':0,
+	  'training':0,
+	  'badges':0,
+	  'achievements':0,	  	  
   }
   
 };

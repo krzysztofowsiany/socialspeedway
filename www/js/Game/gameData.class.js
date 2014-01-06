@@ -4,7 +4,9 @@
  */
 
 var gameData = {
+	synchronize:undefined,
 	data:undefined,
+	date:undefined,
 	init:function(){
 		var tmp = localStorage.getItem("data");
 		
@@ -22,6 +24,15 @@ var gameData = {
 	newGame:function() {		
 		this.data=dataScheme;
 		this.saveLocal();
+	},
+	
+	sync:function() {
+		this.synchronize.synchronize();
+	},
+	
+	
+	updateTime:function() {
+		this.date = new Date().getTime();
 	}
 	
 };

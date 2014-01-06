@@ -38,12 +38,13 @@ var page = {
     },    
        
     // deviceready Event Handler
-    onDeviceReady: function() { 
-    	
-    	
+    onDeviceReady: function() {
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
     	
     	CORE.LOG.addInfo("GAME:onDeviceReady-init connection");
+    	
+    	gameData.synchronize = new Synchronize();
+    	gameData.synchronize.init(CORE.SOCKET);
     	
     	page.gamePage=GamePage();
     	page.gamePage.init();

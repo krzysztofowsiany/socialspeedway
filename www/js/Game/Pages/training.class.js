@@ -39,8 +39,7 @@ function TrainingPage() {
 		if (gameData.data.player.training.trainingType >-1) {
 			if ((gameData.data.player.training.endTime - new Date().getTime()) >0){			
 				setTimeout(function(){trainingTimer()},1000);
-				showActualTraining();
-				
+				showActualTraining();				
 			}
 			else
 				{

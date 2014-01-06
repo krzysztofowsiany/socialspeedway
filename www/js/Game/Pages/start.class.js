@@ -40,7 +40,9 @@ function StartPage(){
 				gameState.setPlayerState( PLAYERSTATE.SIGNED);
 				gameState.setGameState(GAMESTATE.CONTINUE);
 				gameData.data.player.playerID=id;
-				page.gamePage.loadGameProfileData();
+				
+				gameData.sync();
+				//page.gamePage.loadGameProfileData();
 				//page.gamePage.signed();    				
 				
 				goGamePage();

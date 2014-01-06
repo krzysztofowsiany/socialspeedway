@@ -45,7 +45,7 @@ function GamePage(){
     	gameData.saveLocal();
     	CORE.LOG.addInfo("GAME_PAGE:setProfileData");    	    	
     }
-	
+	/*
 	function loadGameProfileData(){    	
     	if (gameData.data.player.playerID>0) {
     		CORE.LOG.addInfo("GAME_PAGE:loadProfileData");
@@ -61,11 +61,11 @@ function GamePage(){
     		p.saveSkills(gameData.data.player.playerID);    		
     	}  	    	    	
     }
-             
+      */       
 	
     //navigation
     function onClickRegister()    {    	
-    	event.preventDefault();
+    //	event.preventDefault();
     	CORE.LOG.addInfo("GAME_PAGE:onClickRegister");
     	$.mobile.changePage("#register_page", "flip");
     	
@@ -113,7 +113,7 @@ function GamePage(){
     	init:init,
     	signed:signed,
     	unSigned:unSigned,
-    	loadGameProfileData:loadGameProfileData,
-    	saveGameProfileData:saveGameProfileData
+    	//loadGameProfileData:loadGameProfileData,
+    	//saveGameProfileData:saveGameProfileData
     };
 }

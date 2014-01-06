@@ -11,18 +11,17 @@ function RegisterPage(){
     function onClickRegister()    {    	
     	var r = new RegisterCommunication(CORE.SOCKET,
     		function () {
-				alert("Gracz zarejestrowany");
+    			CORE.showDialog("Gracz zarejestrowany");
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
 				
 				gameData.data.player.playerID=0;
 				
-				window.location = "#start_page";
+				$.mobile.changePage("#start_page", "flip");
 				
 			},
-			function () {
-				
-				alert("Gracz nie został zarejestrowany");    				    				
+			function () {				
+				CORE.showDialog("Gracz nie został zarejestrowany");    				    				
 			}
 		);
     	
