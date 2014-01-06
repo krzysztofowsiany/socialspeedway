@@ -10,8 +10,16 @@ function SkillsSynchronize(sock){
 	 * result Data 
 	 */
 	
-	function resultData(data) {
+	function resultData(skills) {
 		CORE.LOG.addInfo("SKILLS_SYNCH:resultData");
+		
+		gameData.data.player.skills.strength = parseInt(skills.strength);
+		gameData.data.player.skills.speed = parseInt(skills.speed);
+		gameData.data.player.skills.agility = parseInt(skills.agility);
+		gameData.data.player.skills.endurance = parseInt(skills.endurance);		
+		
+		gameData.data.synch.skills = Date.parse(skills.skills);
+		gameData.saveLocal();
 	}
 	
 	
@@ -19,10 +27,10 @@ function SkillsSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{
-		switch (result) {
-		case 0:break; //nothing to do
-		case 1: getData(); break; //getData
-		case -1: setData(); break; //setData		
+		switch (parseInt(result)) {
+			case 0:break; //nothing to do
+			case 1: getData(); break; //getData
+			case -1: setData(); break; //setData		
 		}
 		
 	}
@@ -59,13 +67,14 @@ function SkillsSynchronize(sock){
 		CORE.LOG.addInfo("SKILLS_SYNCH:getData");
 		_this_.socket.emit('skillsGetData',
 			{ 		
-		  		playerID:id
+				playerID:gameData.data.player.playerID
 			}
 	  	);
 	}
 
 	return {
-		check:check	
+		check:check,		
+		push:setData,
 	}	
 }
 

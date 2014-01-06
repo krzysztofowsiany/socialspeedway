@@ -10,8 +10,12 @@ function TrainingSynchronize(sock){
 	 * result Data 
 	 */
 	
-	function resultData(data) {
+	function resultData(training) {
 		CORE.LOG.addInfo("TRAINING_SYNCH:resultData");
+		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
+		
+		gameData.data.synch.training = Date.parse(training.trainings);
+		gameData.saveLocal();
 	}
 	
 	
@@ -19,10 +23,10 @@ function TrainingSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{
-		switch (result) {
-		case 0:break; //nothing to do
-		case 1: getData(); break; //getData
-		case -1: setData(); break; //setData		
+		switch (parseInt(result)) {
+			case 0:break; //nothing to do
+			case 1: getData(); break; //getData
+			case -1: setData(); break; //setData		
 		}
 		
 	}
@@ -59,13 +63,14 @@ function TrainingSynchronize(sock){
 		CORE.LOG.addInfo("TRAINING_SYNCH:getData");
 		_this_.socket.emit('trainingGetData',
 			{ 		
-		  		playerID:id
+				playerID:gameData.data.player.playerID
 			}
 	  	);
 	}
 
 	return {
-		check:check	
+		check:check,		
+		push:setData,	
 	}	
 }
 

@@ -12,7 +12,7 @@ function ProfileSynchronize(sock){
 	
 	function resultData(profile) {
 		CORE.LOG.addInfo("PROFILE_SYNCH:resultData");
-		console.log(profile);
+		
 		gameData.data.player.profile.sex = parseInt(profile.sex);
 		gameData.data.player.profile.name = profile.name;
 		gameData.data.player.profile.surname = profile.surname;
@@ -75,7 +75,8 @@ function ProfileSynchronize(sock){
 	
 
 	return {
-		check:check	
+		check:check,		
+		push:setData,
 	}	
 }
 

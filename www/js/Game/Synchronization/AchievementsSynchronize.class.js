@@ -10,8 +10,12 @@ function AchievementsSynchronize(sock){
 	 * result Data 
 	 */
 	
-	function resultData(data) {
+	function resultData(achievements) {
 		CORE.LOG.addInfo("ACHIEVEMENTS_SYNCH:resultData");
+		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
+		
+		gameData.data.synch.achievements = Date.parse(achievements.achievements);
+		gameData.saveLocal();
 	}
 	
 	
@@ -19,12 +23,11 @@ function AchievementsSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{
-		switch (result) {
-		case 0:break; //nothing to do
-		case 1: getData(); break; //getData
-		case -1: setData(); break; //setData		
-		}
-		
+		switch (parseInt(result)) {
+			case 0:break; //nothing to do
+			case 1: getData(); break; //getData
+			case -1: setData(); break; //setData		
+		}		
 	}
 	
 	/**
@@ -46,7 +49,7 @@ function AchievementsSynchronize(sock){
 	function setData() {
 		CORE.LOG.addInfo("ACHIEVEMENTS_SYNCH:setData");
 		_this_.socket.emit('achievementsSetData',{
-			achievements:gameData.data.player.achievements,	  		
+				achievements:gameData.data.player.achievements,	  		
 	  			playerID:gameData.data.player.playerID
 			}
 		);
@@ -59,13 +62,14 @@ function AchievementsSynchronize(sock){
 		CORE.LOG.addInfo("ACHIEVEMENTS_SYNCH:getData");
 		_this_.socket.emit('achievementsGetData',
 			{ 		
-		  		playerID:id
+				playerID:gameData.data.player.playerID
 			}
 	  	);
 	}
 
 	return {
-		check:check	
+		check:check,		
+		push:setData,
 	}	
 }
 

@@ -7,6 +7,73 @@ function Synchronize(){
 		this.achievementsSynchronize = new AchievementsSynchronize(sock);
 	}
 	
+	
+	/**
+	 * Push profile 
+	 */
+	function pushProfile() {
+		CORE.LOG.addInfo("SYNCHRONIZE:pushProfile");
+		try {
+			this.profileSynchronize.push();
+		}
+		catch(except) {
+			CORE.LOG.addError("SYNCHRONIZE:pushProfile("+except+")");
+		}
+	}
+	
+	/**
+	 * Push skills
+	 */
+	function pushSkills() {
+		CORE.LOG.addInfo("SYNCHRONIZE:pushSkills");
+		try {
+			this.skillsSynchronize.push();
+		}
+		catch(except) {
+			CORE.LOG.addError("SYNCHRONIZE:pushSkills("+except+")");
+		}
+	}
+	
+	/**
+	 * Push training 
+	 */
+	function pushTraining() {
+		CORE.LOG.addInfo("SYNCHRONIZE:pushTraining");
+		try {
+			this.trainingSynchronize.push();
+		}
+		catch(except) {
+			CORE.LOG.addError("SYNCHRONIZE:pushTraining("+except+")");
+		}
+	}
+	
+	/**
+	 * Push badges 
+	 */
+	function pushBadges() {
+		CORE.LOG.addInfo("SYNCHRONIZE:pushBadges");
+		try {
+			this.badgesSynchronize.push();
+		}
+		catch(except) {
+			CORE.LOG.addError("SYNCHRONIZE:pushBadges("+except+")");
+		}
+	}
+	
+	/**
+	 * Push achievements
+	 */
+	function pushAchievements() {
+		CORE.LOG.addInfo("SYNCHRONIZE:pushAchievements");
+		try {
+			this.achievementsSynchronize.push();
+		}
+		catch(except) {
+			CORE.LOG.addError("SYNCHRONIZE:pushAchievements("+except+")");
+		}
+	}
+	
+	
 	/**
 	 * Synchronize data
 	 * @params
@@ -22,28 +89,28 @@ function Synchronize(){
 		}
 		
 		try {		
-			//this.skillsSynchronize.check();
+			this.skillsSynchronize.check();
 		}
 		catch(except) {
 			CORE.LOG.addError("SYNCHRONIZE:"+except);
 		}
 		
 		try {
-			//this.trainingSynchronize.check();
+			this.trainingSynchronize.check();
 		}
 		catch(except) {
 			CORE.LOG.addError("SYNCHRONIZE:"+except);
 		}
 		
 		try {
-			//this.badgesSynchronize.check();
+			this.badgesSynchronize.check();
 		}
 		catch(except) {
 			CORE.LOG.addError("SYNCHRONIZE:"+except);
 		}
 		
 		try {
-			//this.achievementsSynchronize.check();
+			this.achievementsSynchronize.check();
 		}
 		catch(except) {
 			CORE.LOG.addError("SYNCHRONIZE:"+except);
@@ -51,6 +118,12 @@ function Synchronize(){
 	}
 	
 	return {
+		pushProfile:pushProfile,
+		pushSkills:pushSkills,
+		pushTraining:pushTraining,
+		pushBadges:pushBadges,
+		pushAchievements:pushAchievements,
+		
 		synchronize:synchronize,
 		init:init,
 	}	

@@ -10,8 +10,12 @@ function BadgesSynchronize(sock){
 	 * result Data 
 	 */
 	
-	function resultData(data) {
+	function resultData(badges) {
 		CORE.LOG.addInfo("BADGES_SYNCH:resultData");
+		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
+		
+		gameData.data.synch.badges = Date.parse(badges.badges);
+		gameData.saveLocal();
 	}
 	
 	
@@ -19,10 +23,10 @@ function BadgesSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{
-		switch (result) {
-		case 0:break; //nothing to do
-		case 1: getData(); break; //getData
-		case -1: setData(); break; //setData		
+		switch (parseInt(result)) {
+			case 0:break; //nothing to do
+			case 1: getData(); break; //getData
+			case -1: setData(); break; //setData		
 		}
 		
 	}
@@ -59,13 +63,14 @@ function BadgesSynchronize(sock){
 		CORE.LOG.addInfo("BADGES_SYNCH:getData");
 		_this_.socket.emit('badgesGetData',
 			{ 		
-		  		playerID:id
+				playerID:gameData.data.player.playerID
 			}
 	  	);
 	}
 
 	return {
-		check:check	
+		check:check,		
+		push:setData,	
 	}	
 }
 
