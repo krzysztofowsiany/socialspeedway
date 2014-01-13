@@ -4,9 +4,11 @@ header {
 
 div.button
 {
-	width:80pt;
-	height:80pt;
+	width:45%;	
 	float:left;
-	margin:1pt;
-	background-color:red;
+	margin:10px;
+	background-color:cornflowerblue;
+	color:white;
+	text-align:center;
+	vertical-align: middle;
 }

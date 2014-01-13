@@ -150,10 +150,14 @@ var CORE = {
 			+ CORE.numberEnding(minutes) +':'
 			+ CORE.numberEnding(seconds);
 	},
+	getCurrentTime:function() {
+		//return new Date().toISOString();
+		return new Date().getTime();
+	},
 	showDialog:function(message) {
-		$("#MessageBox").dialog();
-		$("#MessageBoxMessage").html('SPAM and EGGS!')
-		//alert(message);
+		//$("#MessageBox").dialog();
+		//$("#MessageBoxMessage").html('SPAM and EGGS!')
+		alert(message);
 	}
 };
 

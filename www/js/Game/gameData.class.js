@@ -29,7 +29,9 @@ var gameData = {
 	sync:function() {
 		this.synchronize.synchronize();
 	},
-	
+	pushProfile:function() {
+		this.synchronize.pushProfile();
+	},
 	
 	updateTime:function() {
 		this.date = new Date().getTime();

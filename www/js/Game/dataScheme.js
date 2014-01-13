@@ -28,11 +28,11 @@ var dataScheme = {
 	  'state':0
   },
   'synch':{
-	  'profile':0,
-	  'skills':0,
-	  'training':0,
-	  'badges':0,
-	  'achievements':0,	  	  
+	  'profile':-2177449139,
+	  'skills':-2177449139,
+	  'training':-2177449139,
+	  'badges':-2177449139,
+	  'achievements':-2177449139,  
   }
   
 };

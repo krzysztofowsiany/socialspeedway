@@ -37,8 +37,16 @@ var page = {
 		this.onDeviceReady();		
     },    
        
+    setSizes : function(){
+    	var w = ($('#start_page').width() / 2) - 40;
+    	
+    	
+    	$('div.button').css({'height':w+'px','width':w+'px'});
+    },
     // deviceready Event Handler
     onDeviceReady: function() {
+    	page.setSizes();
+    	
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
     	
     	CORE.LOG.addInfo("GAME:onDeviceReady-init connection");

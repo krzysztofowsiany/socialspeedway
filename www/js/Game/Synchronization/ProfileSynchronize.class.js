@@ -28,6 +28,7 @@ function ProfileSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{		
+		alert(result);
 		switch (parseInt(result)) {
 			case 0:break; //nothing to do
 			case 1: getData(); break; //getData
