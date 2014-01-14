@@ -31,8 +31,13 @@ var gameData = {
 	},
 	pushProfile:function() {
 		this.synchronize.pushProfile();
+	},	
+	pushAchievements:function() {
+		this.synchronize.pushAchievements();
 	},
-	
+	pushBadges:function() {
+		this.synchronize.pushBadges();
+	},
 	updateTime:function() {
 		this.date = new Date().getTime();
 	}

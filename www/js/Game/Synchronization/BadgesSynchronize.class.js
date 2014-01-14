@@ -12,9 +12,10 @@ function BadgesSynchronize(sock){
 	
 	function resultData(badges) {
 		CORE.LOG.addInfo("BADGES_SYNCH:resultData");
-		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
+		console.log(badges);		
 		
-		gameData.data.synch.badges = Date.parse(badges.badges);
+		gameData.data.player.badges = badges.badges;	
+		gameData.data.synch.badges = Date.parse(badges.date.badges);
 		gameData.saveLocal();
 	}
 	
@@ -23,6 +24,7 @@ function BadgesSynchronize(sock){
 	 * Check synch result
 	 */		
 	function checkResult(result)	{
+		alert(result);
 		switch (parseInt(result)) {
 			case 0:break; //nothing to do
 			case 1: getData(); break; //getData
@@ -51,7 +53,8 @@ function BadgesSynchronize(sock){
 		CORE.LOG.addInfo("BADGES_SYNCH:setData");
 		_this_.socket.emit('badgesSetData',{
 				badges:gameData.data.player.badges,	  		
-	  			playerID:gameData.data.player.playerID
+	  			playerID:gameData.data.player.playerID,
+	  			date:gameData.data.synch.badges,
 			}
 		);
 	}
