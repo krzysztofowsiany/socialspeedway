@@ -67,13 +67,13 @@ function GamePage(){
     function onClickRegister()    {    	
     //	event.preventDefault();
     	CORE.LOG.addInfo("GAME_PAGE:onClickRegister");
-    	$.mobile.changePage("#register_page", "flip");
+    	$.mobile.changePage("#register_page");
     	
     }
     
     function onClickProfile()    {    	
     	page.profilePage.loadData();
-    	event.preventDefault();
+    	//event.preventDefault();
     	
     	CORE.LOG.addInfo("GAME_PAGE:onClickProfile");
     	$.mobile.changePage("#profile_page", "flip");

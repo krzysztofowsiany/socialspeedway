@@ -14,6 +14,7 @@ function TrainingSynchronize(sock){
 		CORE.LOG.addInfo("TRAINING_SYNCH:resultData");
 		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
 		
+		
 		gameData.data.synch.training = Date.parse(training.trainings);
 		gameData.saveLocal();
 	}
@@ -50,8 +51,9 @@ function TrainingSynchronize(sock){
 	function setData() {
 		CORE.LOG.addInfo("TRAINING_SYNCH:setData");
 		_this_.socket.emit('trainingSetData',{
-			training:gameData.data.player.training,	  		
-	  			playerID:gameData.data.player.playerID
+				training:gameData.data.player.training,	  		
+	  			playerID:gameData.data.player.playerID,
+	  			date:gameData.data.synch.training,
 			}
 		);
 	}

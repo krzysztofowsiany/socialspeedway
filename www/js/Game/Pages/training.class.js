@@ -123,9 +123,7 @@ function TrainingPage() {
 			
 			trainingTimer();
 			//	showActualTraining();
-		}
-		
-		
+		}		
 		
 	}
 	
@@ -143,6 +141,7 @@ function TrainingPage() {
 		
 		gameData.data.player.training.endTime = new Date().getTime() + 60*60*1000 * params.time;
 		gameData.saveLocal();
+		gameData.pushTraining();
 		trainingTimer();
 	//	showActualTraining();
 		setTrainingVisiblity();		

@@ -5,10 +5,11 @@
 
 function RegisterPage(){
 	function init() {
-		$(".register").on('click', onClickRegister);		  	
+		$(".registerUser").on('click', onClickRegister);		  	
 	}
     
-    function onClickRegister()    {    	
+    function onClickRegister()    {
+    	
     	var r = new RegisterCommunication(CORE.SOCKET,
     		function () {
     			CORE.showDialog("Gracz zarejestrowany");

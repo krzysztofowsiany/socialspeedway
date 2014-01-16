@@ -38,6 +38,9 @@ var gameData = {
 	pushBadges:function() {
 		this.synchronize.pushBadges();
 	},
+	pushTraining:function() {
+		this.synchronize.pushTraining();
+	},
 	updateTime:function() {
 		this.date = new Date().getTime();
 	}
