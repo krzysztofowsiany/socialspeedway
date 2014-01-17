@@ -14,6 +14,7 @@ function Synchronize(){
 	function pushProfile() {
 		CORE.LOG.addInfo("SYNCHRONIZE:pushProfile");
 		try {
+			console.log("push profile");
 			this.profileSynchronize.push();
 		}
 		catch(except) {
@@ -27,6 +28,7 @@ function Synchronize(){
 	function pushSkills() {
 		CORE.LOG.addInfo("SYNCHRONIZE:pushSkills");
 		try {
+			console.log("push skills");
 			this.skillsSynchronize.push();
 		}
 		catch(except) {
@@ -40,6 +42,7 @@ function Synchronize(){
 	function pushTraining() {
 		CORE.LOG.addInfo("SYNCHRONIZE:pushTraining");
 		try {
+			console.log("push training");
 			this.trainingSynchronize.push();
 		}
 		catch(except) {
@@ -53,6 +56,7 @@ function Synchronize(){
 	function pushBadges() {
 		CORE.LOG.addInfo("SYNCHRONIZE:pushBadges");
 		try {
+			console.log("push badges");
 			this.badgesSynchronize.push();
 		}
 		catch(except) {
@@ -66,6 +70,7 @@ function Synchronize(){
 	function pushAchievements() {
 		CORE.LOG.addInfo("SYNCHRONIZE:pushAchievements");
 		try {
+			console.log("push achievements");
 			this.achievementsSynchronize.push();
 		}
 		catch(except) {
@@ -82,6 +87,7 @@ function Synchronize(){
 	function synchronize() {		
 		CORE.LOG.addInfo("SYNCHRONIZE:synchronize");
 		try {
+			console.log("profile check");
 			this.profileSynchronize.check();
 		}
 		catch(except) {
@@ -89,6 +95,7 @@ function Synchronize(){
 		}
 		
 		try {		
+			console.log("skills check");
 			this.skillsSynchronize.check();
 		}
 		catch(except) {
@@ -96,6 +103,7 @@ function Synchronize(){
 		}
 		
 		try {
+			console.log("training check");
 			this.trainingSynchronize.check();
 		}
 		catch(except) {
@@ -103,6 +111,7 @@ function Synchronize(){
 		}
 		
 		try {
+			console.log("badges check");
 			this.badgesSynchronize.check();
 		}
 		catch(except) {
@@ -110,6 +119,7 @@ function Synchronize(){
 		}
 		
 		try {
+			console.log("achievements check");
 			this.achievementsSynchronize.check();
 		}
 		catch(except) {

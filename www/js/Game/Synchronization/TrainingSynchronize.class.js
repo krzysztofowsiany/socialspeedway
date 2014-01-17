@@ -3,23 +3,24 @@ function TrainingSynchronize(sock){
 	this.socket = sock;	
 	
 	this.socket.on('syncTrainingResultData',resultData);
-	this.socket.on('syncTrainingCheckResult',checkResult);
-	
+	this.socket.on('syncTrainingCheckResult',checkResult);	
 	
 	/**
 	 * result Data 
-	 */
-	
+	 */	
 	function resultData(training) {
 		CORE.LOG.addInfo("TRAINING_SYNCH:resultData");
-		//gameData.data.player.skills.endurance = parseInt(training.endurance);		
+		console.log(training);
 		
+		gameData.data.player.training.endTime = Date.parse(training.endtime);
+		gameData.data.player.training.trainingType = training.type;
+		gameData.data.player.training.trainingLevel = training.level;
+		gameData.data.player.training.cost = training.cost;
 		
-		gameData.data.synch.training = Date.parse(training.trainings);
+		gameData.data.synch.training = Date.parse(training.training);
 		gameData.saveLocal();
-	}
-	
-	
+	}	
+
 	/**
 	 * Check synch result
 	 */		
@@ -28,8 +29,7 @@ function TrainingSynchronize(sock){
 			case 0:break; //nothing to do
 			case 1: getData(); break; //getData
 			case -1: setData(); break; //setData		
-		}
-		
+		}		
 	}
 	
 	/**

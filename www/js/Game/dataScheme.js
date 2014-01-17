@@ -16,10 +16,10 @@ var dataScheme = {
 		  'strength':0
 	  },
 	  'training':{
-		  'endTime':undefined,
+		  'endTime':0,
 		  'trainingType':-1,
 		  'trainingLevel':0,
-		  'trainingStart':0
+		  "cost":0
 	  },
 	  'achievements':[],
 	  'badges':[],
@@ -28,11 +28,11 @@ var dataScheme = {
 	  'state':0
   },
   'synch':{
-	  'profile':-2177449139,
-	  'skills':-2177449139,
-	  'training':-2177449139,
-	  'badges':-2177449139,
-	  'achievements':-2177449139,  
+	  'profile':0,
+	  'skills':0,
+	  'training':0,
+	  'badges':0,
+	  'achievements':0,  
   }
   
 };

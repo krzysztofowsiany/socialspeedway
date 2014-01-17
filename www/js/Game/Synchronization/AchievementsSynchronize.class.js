@@ -12,7 +12,6 @@ function AchievementsSynchronize(sock){
 	
 	function resultData(achievements) {
 		CORE.LOG.addInfo("ACHIEVEMENTS_SYNCH:resultData");
-		console.log(achievements);
 		
 		
 		gameData.data.player.achievements = achievements.achievements;

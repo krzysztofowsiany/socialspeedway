@@ -35,6 +35,9 @@ var gameData = {
 	pushAchievements:function() {
 		this.synchronize.pushAchievements();
 	},
+	pushSkills:function() {
+		this.synchronize.pushSkills();
+	},
 	pushBadges:function() {
 		this.synchronize.pushBadges();
 	},

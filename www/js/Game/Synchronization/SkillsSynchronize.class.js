@@ -42,7 +42,7 @@ function SkillsSynchronize(sock){
 		CORE.LOG.addInfo("SKILLS_SYNCH:check");
 		_this_.socket.emit('checkSynch',{
 				what:'skills',
-				date:gameData.data.synch.profile,	  		
+				date:gameData.data.synch.skills,	  		
 	  			playerID:gameData.data.player.playerID
 			}
 		);
@@ -55,7 +55,8 @@ function SkillsSynchronize(sock){
 		CORE.LOG.addInfo("SKILLS_SYNCH:setData");
 		_this_.socket.emit('skillsSetData',{
 				skills:gameData.data.player.skills,	  		
-	  			playerID:gameData.data.player.playerID
+	  			playerID:gameData.data.player.playerID,
+	  			date:gameData.data.synch.skills
 			}
 		);
 	}

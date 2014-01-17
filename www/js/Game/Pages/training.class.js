@@ -81,24 +81,30 @@ function TrainingPage() {
 		
 		CORE.showDialog("Training Done");
 		
-		onStopTraining();
+		onEndTraining();
 	}
 	
-	function onStopTraining(){
+	function onEndTraining(){
 		gameData.data.player.training.trainingType=-1;
+		//save remote data		
+		setSkills();
 		gameData.saveLocal();
-		
-		
-		//save remote data
-		page.gamePage.saveGameProfileData();
+		gameData.pushTraining();
+		gameData.pushSkills();
 		
 		setTrainingVisiblity();			
 	}
 	
-	function showActualTraining(){
+	function onStopTraining(){
+		gameData.data.player.training.trainingType=-1;		
+		//save remote data		
+		gameData.saveLocal();
+		gameData.pushTraining();
 		
-		
-		
+		setTrainingVisiblity();			
+	}
+	
+	function showActualTraining(){		
 		$("#trainingType").html(training.name);
 
 		$("#trainingBonus").html('+'+params.exp);
@@ -119,12 +125,10 @@ function TrainingPage() {
 		setTrainingVisiblity();
 		setSkills();
 		if (gameData.data.player.training.trainingType>-1) {
-			getTrainingParams();
-			
+			getTrainingParams();			
 			trainingTimer();
 			//	showActualTraining();
-		}		
-		
+		}
 	}
 	
 	function getTrainingParams(){
