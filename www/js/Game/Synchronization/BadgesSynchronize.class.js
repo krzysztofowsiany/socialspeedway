@@ -5,6 +5,36 @@ function BadgesSynchronize(sock){
 	this.socket.on('syncBadgesResultData',resultData);
 	this.socket.on('syncBadgesCheckResult',checkResult);
 	
+	//get achievements
+	this.socket.on('badgesList', badgesList);
+					
+	
+	/**
+	 * badgesList
+	 */
+	function badgesList(list) {
+		CORE.LOG.addInfo("BADGES_SYNCH:badgetsList");
+		console.log(list);
+		gameData.data.game.badgesList = list;
+		//gameData.data.synch.achievements = Date.parse(achievements.date.achievements);
+		
+		gameData.saveLocal();
+	}
+	
+
+	/**
+	 * get badges list
+	 * getBadgesList
+	 */	
+	function getBadgesList()	{	
+		CORE.LOG.addInfo("BADGES_SYNCH:getBadgesList");
+		_this_.socket.emit('getBadgesList',
+			{ 		
+				//playerID:gameData.data.player.playerID
+			}
+	  	);
+	}
+	
 	
 	/**
 	 * result Data 
@@ -73,6 +103,7 @@ function BadgesSynchronize(sock){
 	return {
 		check:check,		
 		push:setData,	
+		getBadgesList:getBadgesList,
 	}	
 }
 

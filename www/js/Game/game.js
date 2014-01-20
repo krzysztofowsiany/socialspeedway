@@ -10,6 +10,8 @@ var page = {
 	gamePage:undefined,
 	registerPage:undefined,
 	trainingPage:undefined,
+	achievementsPage:undefined,
+	badgesPage:undefined,
 	
     initialize: function() {    	
     	if ( CORE.isDEVICE() ) 
@@ -38,10 +40,12 @@ var page = {
     },    
        
     setSizes : function(){
-    	var w = ($('#start_page').width() / 2) - 40;
-    	
-    	
+    	var width = $('#start_page').width();
+    	var w = (width / 2) - 40;
     	$('div.button').css({'height':w+'px','width':w+'px'});
+    	
+    	//w = (width / 3);
+    	//$('td.achievementItem').css({'height':w+'px','width':w+'px'});
     },
     // deviceready Event Handler
     onDeviceReady: function() {
@@ -53,6 +57,7 @@ var page = {
     	
     	gameData.synchronize = new Synchronize();
     	gameData.synchronize.init(CORE.SOCKET);
+    	gameData.synchronize.updateGame();
     	
     	page.gamePage=GamePage();
     	page.gamePage.init();
@@ -73,5 +78,15 @@ var page = {
     	page.trainingPage=TrainingPage();
     	page.trainingPage.init();
     	CORE.LOG.addInfo("GAME:onDeviceReady-TrainingPage");
+    	
+    	
+    	page.achievementsPage=AchievementsPage();
+    	page.achievementsPage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-AchievementsPage");
+    	
+    	
+    	page.badgesPage=BadgesPage();
+    	page.badgesPage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-BadgesPage");
     },       
 };

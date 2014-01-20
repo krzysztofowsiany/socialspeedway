@@ -1,4 +1,11 @@
 function Synchronize(){	
+	/**
+	 * Initialize synchronization classes
+	 * init 
+	 * @param sock
+	 * @returns
+	 */
+	
 	function init(sock) {
 		this.profileSynchronize = new ProfileSynchronize(sock);
 		this.skillsSynchronize = new SkillsSynchronize(sock);
@@ -6,6 +13,15 @@ function Synchronize(){
 		this.badgesSynchronize = new BadgesSynchronize(sock);
 		this.achievementsSynchronize = new AchievementsSynchronize(sock);
 	}
+	
+	/**
+	 * Update game data
+	 */
+	function updateGame() {		
+		this.badgesSynchronize.getBadgesList();
+		this.achievementsSynchronize.getAchievementsList();
+	}
+	
 	
 	
 	/**
@@ -134,6 +150,7 @@ function Synchronize(){
 		pushBadges:pushBadges,
 		pushAchievements:pushAchievements,
 		
+		updateGame:updateGame,
 		synchronize:synchronize,
 		init:init,
 	}	

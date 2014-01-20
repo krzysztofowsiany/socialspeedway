@@ -25,7 +25,9 @@ var dataScheme = {
 	  'badges':[],
   },
   'game':{
-	  'state':0
+	  'state':0,
+	  'achievementsList':[],
+	  'badgesList':[],	  
   },
   'synch':{
 	  'profile':0,

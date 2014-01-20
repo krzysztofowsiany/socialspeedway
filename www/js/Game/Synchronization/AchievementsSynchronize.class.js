@@ -4,7 +4,38 @@ function AchievementsSynchronize(sock){
 	
 	this.socket.on('syncAchievementsResultData',resultData);
 	this.socket.on('syncAchievementsCheckResult',checkResult);
+	
+	//get achievements
+	this.socket.on('achievementsList', achievementsList);
 					
+	
+	/**
+	 * achievementsList
+	 */
+	function achievementsList(list) {
+		CORE.LOG.addInfo("ACHIEVEMENTS_LIST:achievementsList");
+		console.log(list);
+		gameData.data.game.achievementsList = list;
+		//gameData.data.synch.achievements = Date.parse(achievements.date.achievements);
+		
+		gameData.saveLocal();
+	}
+	
+
+	/**
+	 * get achievements list
+	 * getAchievementList
+	 */	
+	function getAchievementsList()	{	
+		CORE.LOG.addInfo("ACHIEVEMENTS_SYNCH:getAchievementsList");
+		_this_.socket.emit('getAchievementsList',
+			{ 		
+				//playerID:gameData.data.player.playerID
+			}
+	  	);
+	}
+	
+	
 	
 	/**
 	 * result Data 
@@ -74,6 +105,7 @@ function AchievementsSynchronize(sock){
 	return {
 		check:check,		
 		push:setData,
+		getAchievementsList:getAchievementsList,
 	}	
 }
 
