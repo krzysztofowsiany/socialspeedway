@@ -14,9 +14,9 @@ var CORE = {
 		 * SERVER URL,
 		 */
 		//local server
-		this.SERVER_URL = "http://localhost:8080";
+		//this.SERVER_URL = "http://localhost:8080";
 		//remote server
-		//	this.SERVER_URL = "http://socialspeedway.com:8080";
+			this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
 		if (this.isDEVICE()) {
