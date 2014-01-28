@@ -12,6 +12,7 @@ var page = {
 	trainingPage:undefined,
 	achievementsPage:undefined,
 	badgesPage:undefined,
+	currentPage:undefined,
 	
     initialize: function() {    	
     	if ( CORE.isDEVICE() ) 
@@ -47,8 +48,17 @@ var page = {
     	//w = (width / 3);
     	//$('td.achievementItem').css({'height':w+'px','width':w+'px'});
     },
+
+    backKeyDown:function() {
+        //navigator.app.exitApp(); // To exit the app!
+    	page.currentPage.backPage();
+    	
+    },    
+    
     // deviceready Event Handler
     onDeviceReady: function() {
+    	document.addEventListener("backbutton", page.backKeyDown, true);
+    	
     	page.setSizes();
     	
     	CORE.SOCKET = io.connect(CORE.SERVER_URL);
@@ -64,7 +74,9 @@ var page = {
     	CORE.LOG.addInfo("GAME:onDeviceReady-GamePage");
     	
     	page.startPage = StartPage();
-    	page.startPage.init();   	
+    	page.startPage.init();       	
+    	page.currentPage = page.startPage;
+    	
     	CORE.LOG.addInfo("GAME:onDeviceReady-StartPage");
     
     	page.profilePage=ProfilePage();
@@ -88,5 +100,11 @@ var page = {
     	page.badgesPage=BadgesPage();
     	page.badgesPage.init();
     	CORE.LOG.addInfo("GAME:onDeviceReady-BadgesPage");
+    	
+    	
+    	page.startPage.restoreLastAuthorizationData();
+    	
+    	
+    	
     },       
 };

@@ -43,9 +43,23 @@ function BadgesPage(){
 		}
 	}
 	
+	function backPage() {
+		$.mobile.changePage("#game_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.GAME;
+	    page.currentPage = page.gamePage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#badges_page", "none");
+	    gameState.gamePage =GAMEPAGE.BADGES;
+	    page.currentPage = page.badgesPage;
+	}	
+	
 	return {
 		init:init,
 		update:update,
+		backPage:backPage,
+    	thisPage:thisPage,
 	};
 	
 }

@@ -10,8 +10,22 @@ function StartPage(){
     	$(".continue").on('click', onClickContinue);
 	}
 	
+	
+	function restoreLastAuthorizationData(){
+		$("#login").val(gameData.data.authenticate.lastLogin);
+		$("#password").val(gameData.data.authenticate.lastPassword);		
+	}
+	
+	function saveLastAuthorizationData(){
+		gameData.data.authenticate.lastLogin = $("#login").val();
+		gameData.data.authenticate.lastPassword = $("#password").val();
+		gameData.saveLocal();
+	}
+	
+	
 	function goGamePage() {
-		$.mobile.changePage("#game_page");
+		page.gamePage.thisPage();
+		
 		CORE.LOG.addInfo("START_PAGE:onGamePage");
 	}
 	
@@ -33,18 +47,25 @@ function StartPage(){
 		CORE.LOG.addInfo("START_PAGE:onClickContinue");
     }
     
+    
+    
     function onClickLogin()    {
     	var l = new LoginCommunication( CORE.SOCKET,
 			//login ok
 			function(id){    				
 				gameState.setPlayerState( PLAYERSTATE.SIGNED);
 				gameState.setGameState(GAMESTATE.CONTINUE);
+				
+				if (gameData.data.player.playerID!=id)
+					gameData.newGame();
+				
 				gameData.data.player.playerID=id;
 				
-				gameData.sync();
-				//page.gamePage.loadGameProfileData();
-				//page.gamePage.signed();    				
+				page.gamePage.signed();
 				
+				saveLastAuthorizationData();
+				gameData.sync();			
+			  								
 				goGamePage();
 			},
 			//fail
@@ -52,8 +73,7 @@ function StartPage(){
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
 				gameState.setGameState(GAMESTATE.NEW);
 				gameData.data.player.playerID=0;
-				
-				$.mobile.changePage("#start_page");			
+				CORE.showDialog("Authentication", "Login failed!");						
 			}
     	);    	
     	
@@ -64,8 +84,23 @@ function StartPage(){
     	CORE.LOG.addInfo("START_PAGE:onClickLogin");
     }
     
+	function backPage() {
+		//$.mobile.changePage("#game_page", "fade");	    	
+	    //gameState.gamePage =GAMEPAGE.GAME; 
+		navigator.app.exitApp();
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#start_page", "none");
+	    gameState.gamePage =GAMEPAGE.START;
+	}
+    
     return {
-    	init:init
+    	init:init,
+    	restoreLastAuthorizationData:restoreLastAuthorizationData,
+    	backPage:backPage,
+    	thisPage:thisPage,
+    	//saveLastAuthorizationData:saveLastAuthorizationData,
     };
 }
     

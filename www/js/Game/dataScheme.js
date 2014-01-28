@@ -26,6 +26,7 @@ var dataScheme = {
   },
   'game':{
 	  'state':0,
+	  
 	  'achievementsList':[],
 	  'badgesList':[],	  
   },
@@ -35,6 +36,10 @@ var dataScheme = {
 	  'training':0,
 	  'badges':0,
 	  'achievements':0,  
+  },
+  'authenticate':{
+	  'lastLogin':'',
+	  'lastPassword':''
   }
   
 };

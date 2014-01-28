@@ -21,7 +21,7 @@ function ProfilePage(){
     function onClickSaveProfile(){    	
     	setProfilePlayerDataFromValues();
     	
-    	CORE.showDialog("Dane zapisane");
+    	CORE.showDialog("Player Profile","Data saved");
     	
     	CORE.LOG.addInfo("PROFILE_PAGE:onClickSaveProfile");
     }
@@ -87,10 +87,23 @@ function ProfilePage(){
     	//else 
     		setDataFromLocalStorage();      	    	    	
     }
-             
+    
+	function backPage() {
+		$.mobile.changePage("#game_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.GAME; 
+	    page.currentPage = page.gamePage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#profile_page", "none");
+	    gameState.gamePage =GAMEPAGE.PROFILE;
+	    page.currentPage = page.profilePage;
+	}          
     
     return {
     	init:init,
-    	loadData:loadData
+    	loadData:loadData,
+    	backPage:backPage,
+    	thisPage:thisPage,
     };
 }

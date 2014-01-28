@@ -8,21 +8,27 @@ function RegisterPage(){
 		$(".registerUser").on('click', onClickRegister);		  	
 	}
     
-    function onClickRegister()    {
-    	
-    	var r = new RegisterCommunication(CORE.SOCKET,
-    		function () {
-    			CORE.showDialog("Gracz zarejestrowany");
+	function clear() {
+		$("#loginRegister").val("");
+		$("#passwordRegister").val("");    		
+	}
+	
+    function onClickRegister()    {    	
+    	r = new RegisterCommunication(CORE.SOCKET,
+    		function () {    			
+    			CORE.showDialog("Authentication", "New Player are registered.", function(){    				
+    				page.startPage.thisPage();
+    			});
+    			
 				gameState.setPlayerState( PLAYERSTATE.UNSIGNED);
-				gameState.setGameState(GAMESTATE.NEW);
-				
+				gameState.setGameState(GAMESTATE.NEW);				
 				gameData.data.player.playerID=0;
 				
-				$.mobile.changePage("#start_page", "flip");
+				
 				
 			},
 			function () {				
-				CORE.showDialog("Gracz nie został zarejestrowany");    				    				
+				CORE.showDialog("Authentication", "New Player registration failed!");    				    				
 			}
 		);
     	
@@ -34,7 +40,22 @@ function RegisterPage(){
     	
     } 
     
+	function backPage() {
+		$.mobile.changePage("#game_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.GAME; 
+	    page.currentPage = page.gamePage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#register_page", "none");
+	    gameState.gamePage =GAMEPAGE.REGISTER;
+	    page.currentPage = page.registerPage;
+	}  
+    
     return {
-    	init:init
+    	init:init,
+    	clear:clear,
+    	backPage:backPage,
+    	thisPage:thisPage,
    	};
 }

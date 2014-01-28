@@ -151,9 +151,24 @@ function TrainingPage() {
 		setTrainingVisiblity();		
 	}
 	
+	function backPage() {
+		$.mobile.changePage("#game_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.GAME; 
+	    page.currentPage = page.gamePage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#training_page", "none");
+	    gameState.gamePage =GAMEPAGE.TRAINING;
+	    page.currentPage = page.trainingPage;
+	}
+	
+	
 	return {
 		init:init,
-		resumeTraining:onResumeTraining
+		resumeTraining:onResumeTraining,
+		backPage:backPage,
+    	thisPage:thisPage,
 	};
     
 }

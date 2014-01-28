@@ -45,7 +45,7 @@ function GamePage(){
     	gameData.saveLocal();
     	CORE.LOG.addInfo("GAME_PAGE:setProfileData");    	    	
     }
-	/*
+	
 	function loadGameProfileData(){    	
     	if (gameData.data.player.playerID>0) {
     		CORE.LOG.addInfo("GAME_PAGE:loadProfileData");
@@ -61,14 +61,15 @@ function GamePage(){
     		p.saveSkills(gameData.data.player.playerID);    		
     	}  	    	    	
     }
-      */       
+            
 	
     //navigation
     function onClickRegister()    {    	
     //	event.preventDefault();
     	CORE.LOG.addInfo("GAME_PAGE:onClickRegister");
-    	$.mobile.changePage("#register_page");
     	
+    	page.registerPage.clear();
+    	page.registerPage.thisPage();
     }
     
     function onClickProfile()    {    	
@@ -76,28 +77,28 @@ function GamePage(){
     	//event.preventDefault();
     	
     	CORE.LOG.addInfo("GAME_PAGE:onClickProfile");
-    	$.mobile.changePage("#profile_page", "flip");
+    	page.profilePage.thisPage();
     	
     }
     
     function onClickAchievements()    {
     	CORE.LOG.addInfo("GAME_PAGE:onClicAchievements");
-    	$.mobile.changePage("#achievements_page", "flip");
+    	page.achievementsPage.thisPage();
     	
     }
     
     function onClickBadges()    {    	
-    	CORE.LOG.addInfo("GAME_PAGE:onClickBadges");
-    	$.mobile.changePage("#badges_page", "flip");
+    	CORE.LOG.addInfo("GAME_PAGE:onClickBadges");   	
     	
-    	
+    	page.badgesPage.thisPage();
     }
     
     function onClickTraining()    {  
     	page.trainingPage.resumeTraining();
     	CORE.LOG.addInfo("GAME_PAGE:onClickTraining");
-    	$.mobile.changePage("#training_page", "flip");
     	
+    	
+    	page.trainingPage.thisPage();
     }
     
     function onClickLogout() {
@@ -105,15 +106,31 @@ function GamePage(){
     	gameState.setGameState(GAMESTATE.NEW);
     	gameData.data.player.playerID = 0;
     	CORE.LOG.addInfo("GAME_PAGE:onClickLogout");
-    	$.mobile.changePage("#start_page", "flip");
+    	
+    	backPage();
+    	
     	
     }
+    
+	function backPage() {
+		$.mobile.changePage("#start_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.START; 
+	    page.currentPage = page.startPage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#game_page", "none");
+	    gameState.gamePage =GAMEPAGE.GAME;
+	    page.currentPage = page.gamePage;
+	}
     
     return {
     	init:init,
     	signed:signed,
     	unSigned:unSigned,
-    	//loadGameProfileData:loadGameProfileData,
-    	//saveGameProfileData:saveGameProfileData
+    	loadGameProfileData:loadGameProfileData,
+    	saveGameProfileData:saveGameProfileData,
+    	backPage:backPage,
+    	thisPage:thisPage,
     };
 }

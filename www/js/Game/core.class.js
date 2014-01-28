@@ -14,9 +14,9 @@ var CORE = {
 		 * SERVER URL,
 		 */
 		//local server
-		//this.SERVER_URL = "http://localhost:8080";
+		this.SERVER_URL = "http://localhost:8080";
 		//remote server
-			this.SERVER_URL = "http://socialspeedway.com:8080";
+		//this.SERVER_URL = "http://socialspeedway.com:8080";
 
 
 		if (this.isDEVICE()) {
@@ -154,16 +154,23 @@ var CORE = {
 		//return new Date().toISOString();
 		return new Date().getTime();
 	},
-	showDialog:function(message) {
-		//$("#MessageBox").dialog();
-		//$("#MessageBoxMessage").html('SPAM and EGGS!')
-		alert(message);
+	showDialog:function(title, message, onClose) {
+		$("#MessageBoxTitle").html(title);
+		$("#MessageBoxMessage").html(message);
+		$("#MessageBox").bind("pagehide", onClose);
+		$.mobile.changePage("#MessageBox", { 
+			transition: "pop",
+			role: "dialog",
+			
+			});
+	//	alert(message);
 	}
 };
 
 /**
  * INITIALIZE CORE
  */
+
 
 
 

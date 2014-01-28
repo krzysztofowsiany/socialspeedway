@@ -45,10 +45,23 @@ function AchievementsPage(){
 		}
 	}
 	
+	function backPage() {
+		$.mobile.changePage("#game_page", "none");	    	
+	    gameState.gamePage =GAMEPAGE.GAME;
+	    page.currentPage = page.gamePage;
+	}
+	    
+	function thisPage() {
+		$.mobile.changePage("#achievements_page", "none");
+	    gameState.gamePage =GAMEPAGE.ACHIEVEMENTS;
+	    page.currentPage = page.achievementsPage;
+	}
 	
 	return {
 		init:init,
 		update:update,
+		backPage:backPage,
+    	thisPage:thisPage,
 	};	
 	
 }
