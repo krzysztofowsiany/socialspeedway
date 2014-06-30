@@ -11,6 +11,11 @@ var page = {
 	registerPage:undefined,
 	trainingPage:undefined,
 	achievementsPage:undefined,
+	rankPage:undefined,
+	racePage:undefined,
+	marketPage:undefined,
+	machineParkPage:undefined,
+	schedulePage:undefined,
 	badgesPage:undefined,
 	currentPage:undefined,
 	
@@ -100,6 +105,28 @@ var page = {
     	page.badgesPage=BadgesPage();
     	page.badgesPage.init();
     	CORE.LOG.addInfo("GAME:onDeviceReady-BadgesPage");
+    	
+
+    	page.rankPage=RankPage();
+    	page.rankPage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-RankPage");
+    	
+    	page.marketPage=MarketPage();
+    	page.marketPage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-MarketPage");
+    	
+    	page.racePage=RacePage();
+    	page.racePage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-RacePage");
+    	
+    	page.machineParkPage=MachineParkPage();
+    	page.machineParkPage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-MachineParkPage");
+    	
+    	page.schedulePage=SchedulePage();
+    	page.schedulePage.init();
+    	CORE.LOG.addInfo("GAME:onDeviceReady-SchedulePage");    	
+    	
     	
     	
     	page.startPage.restoreLastAuthorizationData();

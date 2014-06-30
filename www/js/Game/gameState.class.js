@@ -18,6 +18,12 @@ var GAMEPAGE = {
 	    TRAINING : 4,
 	    BADGES : 5,
 	    ACHIEVEMENTS : 6,
+	    MARKET : 7,
+	    RACE : 8,
+	    SCHEDULE : 9,
+	    RANK : 10,
+	    MACHINE_PARK:11
+	    
 	    
 	};
 

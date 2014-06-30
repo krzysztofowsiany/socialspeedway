@@ -50,8 +50,16 @@
 	          	<div class="button profile">Player Profile</div>
 	          	<div class="button achievements">Achievements</div>
 	          	<div class="button badges">Badges</div>
+	          	
+	          	<div class="button schedule">Schedule</div>	          	
+	          	<div class="button rank">Rank</div>	          	
+	          	<div class="button market">Market</div>
+	          	<div class="button machine_park">Machine park</div>
+	          	<div class="button race">Race</div>
+	          	
 	          	<div class="button training">Training</div>
 	          	<div class="button logout">Logout</div>
+	          	
 	          </div>
 		</div>
 		
@@ -127,6 +135,9 @@
 			
 			         	<input type="radio" name="trainingType" id="radio-choice-4" value="3"  />
 			         	<label for="radio-choice-4">Endurance [<span id="enduranceValue">2</span>]</label>
+			         	
+			         	<input type="radio" name="trainingType" id="radio-choice-5" value="4"  />
+			         	<label for="radio-choice-5">Rest [<span id="restValue">2</span>]</label>
 			    </fieldset>
 			    
 			     <fieldset data-role="controlgroup" data-type="horizontal">
@@ -156,14 +167,67 @@
   			<button class="stopTraining">Stop</button>
   			</div>
 		</div>
+    	
     	<!-- achievements -->
 		<div data-role="page" id="achievements_page">
-			
+			<div data-role="header">
+    			<h2>Achievements</h2>
+  			</div>
+  			<div id="achievements">
+  			
+  			</div>
 		</div>		   
+		
     	<!-- badges -->
 		<div data-role="page" id="badges_page">
-			
-		</div> 
+			<div data-role="header">
+    			<h2>Badges</h2>
+  			</div>
+  			<div id="badges">
+  			
+  			</div>
+		</div>
+		
+		
+		<!-- market -->
+		<div data-role="page" id="market_page">
+			<div data-role="header">
+    			<h2>Market</h2>
+  			</div>
+		</div>
+		
+		
+		<!-- schedule  -->
+		<div data-role="page" id="schedule_page">
+			<div data-role="header">
+    			<h2>Schedule</h2>
+  			</div>
+		</div>   
+
+
+		<!-- Rank  -->
+		<div data-role="page" id="rank_page">
+			<div data-role="header">
+    			<h2>Rank</h2>
+  			</div>
+		</div>   
+    
+    
+   		<!-- machine park  -->
+		<div data-role="page" id="machine_park_page">
+			<div data-role="header">
+    			<h2>Machine park</h2>
+  			</div>
+		</div>   
+    
+    	<!-- race  -->
+		<div data-role="page" id="race_page">
+			<div data-role="header">
+    			<h2>Race</h2>
+  			</div>
+		</div>   
+    
+    
     
     <!-- dialog box -->
     <section data-role="dialog" id="MessageBox">

@@ -19,7 +19,7 @@ function AchievementsPage(){
 	
 	function update() {		
 		if (gameData.data.game.achievementsList.length>0) {
-			var achievements = $("#achievements_page");
+			var achievements = $("#achievements");
 
 			//remove existed rows
 			achievements.children().remove();								

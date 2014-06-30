@@ -19,7 +19,7 @@ function BadgesPage(){
 	
 	function update() {		
 		if (gameData.data.game.badgesList.length>0) {
-			var badges = $("#badges_page");
+			var badges = $("#badges");
 
 			//remove existed rows
 			badges.children().remove();			
