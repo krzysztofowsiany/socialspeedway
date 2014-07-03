@@ -9,7 +9,29 @@ function MarketPage(){
 	
 	
 	function update() {	
-		
+		var category_sell = $("#sell_category");
+		var category_buy = $("#buy_category");
+
+		category_buy.children().remove();
+		category_sell.children().remove();
+		for (var i=0;i<gameData.data.game.badgesList.length;i++) {			
+			category_sell.append(
+				"<option value='"
+				+ parseInt(gameData.data.game.badgesList[i].ba_id)
+				+ "'>"
+				+ gameData.data.game.badgesList[i].ba_name
+				+ "</option>"
+			);
+			
+			category_buy.append(
+					"<option value='"
+					+ parseInt(gameData.data.game.badgesList[i].ba_id)
+					+ "'>"
+					+ gameData.data.game.badgesList[i].ba_name
+					+ "</option>"
+				);
+			
+		}
 	}
 	
 	function backPage() {

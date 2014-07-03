@@ -34,7 +34,7 @@ var CORE = {
 		CORE.loadScript("js/libs/md5.js", function(){
       		// library
       		CORE.loadScript("js/libs/jquery.min.js", function(){
-				CORE.loadScript("js/libs/jquery.mobile-1.3.2.min.js", function(){
+				CORE.loadScript("js/libs/jquery.mobile-1.4.3.min.js", function(){
 					CORE.loadScript(CORE.SERVER_URL+"/socket.io/socket.io.js", function(){		
 						CORE.loadScript("js/libs/RemoteLog.class.js", function(){
 							
