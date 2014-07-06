@@ -62,6 +62,7 @@ var page = {
     
     // deviceready Event Handler
     onDeviceReady: function() {
+    	navigator.splashscreen.hide();
     	document.addEventListener("backbutton", page.backKeyDown, true);
     	
     	page.setSizes();

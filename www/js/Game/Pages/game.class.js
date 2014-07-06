@@ -138,7 +138,7 @@ function GamePage() {
 	 */
 	function onClickRank() {
 		
-		CORE.LOG.addInfo("GAME_PAGE:onClickTraining");
+		CORE.LOG.addInfo("GAME_PAGE:onClickRank");
 
 		page.rankPage.thisPage();
 	}
