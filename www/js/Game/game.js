@@ -36,6 +36,7 @@ var page = {
     //bind device
     bindDeviceEvents: function() {   	
     	CORE.LOG.addInfo("GAME:bindDeviceEvents");
+    	 navigator.splashscreen.hide();
     	 document.addEventListener("deviceready", page.onDeviceReady, false);
     	//$(document).bind('deviceready', page.onDeviceReady, false);
     },    
@@ -62,7 +63,7 @@ var page = {
     
     // deviceready Event Handler
     onDeviceReady: function() {
-    	navigator.splashscreen.hide();
+    //
     	document.addEventListener("backbutton", page.backKeyDown, true);
     	
     	page.setSizes();

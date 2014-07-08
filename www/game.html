@@ -12,6 +12,7 @@
 
 <script type="text/javascript" src="js/Game/core.class.js"></script>
 <script type="text/javascript">
+	
 	CORE.init(function() {
 		CORE.loadScript("js/Game/game.js", function() {
 
@@ -24,6 +25,7 @@
 <title>SocialSpeedway</title>
 </head>
 <body>
+	<section id="all_content" >
 	<!-- start page -->
 	<div data-role="page" id="start_page">
 		<div data-role="header">
@@ -121,41 +123,44 @@
 			<h2>Training</h2>
 		</div>
 		<div id="new_training">
-			<fieldset data-role="controlgroup">
-				<legend>Chose a training</legend>
-				<input type="radio" name="trainingType" id="radio-choice-1"
-					value="0" checked="checked" /> <label for="radio-choice-1">Strength
-					[<span id="strengthValue">2</span>]
-				</label> <input type="radio" name="trainingType" id="radio-choice-2"
-					value="1" /> <label for="radio-choice-2">Agility [<span
-					id="agilityValue">2</span>]
-				</label> <input type="radio" name="trainingType" id="radio-choice-3"
-					value="2" /> <label for="radio-choice-3">Speed [<span
-					id="speedValue">2</span>]
-				</label> <input type="radio" name="trainingType" id="radio-choice-4"
-					value="3" /> <label for="radio-choice-4">Endurance [<span
-					id="enduranceValue">2</span>]
-				</label> <input type="radio" name="trainingType" id="radio-choice-5"
-					value="4" /> <label for="radio-choice-5">Rest [<span
-					id="restValue">2</span>]
-				</label>
-			</fieldset>
+			<form>
+				<fieldset data-role="controlgroup">
+					<legend>Chose the trainning</legend>
+					<label> <input type="radio" name="trainingType"
+						id="radio-choice-1" value="0" checked="checked">
+						Strength[<span id="strengthValue">2</span>]
+					</label> <label> <input type="radio" name="trainingType"
+						id="radio-choice-2" value="1" checked="checked"> Agility[<span
+						id="agilityValue">2</span>]
+					</label> <label> <input type="radio" name="trainingType"
+						id="radio-choice-3" value="2" checked="checked"> Speed[<span
+						id="speedValue">2</span>]
+					</label> <label> <input type="radio" name="trainingType"
+						id="radio-choice-4" value="3" checked="checked">
+						Endurance[<span id="enduranceValue">2</span>]
+					</label> <label> <input type="radio" name="trainingType"
+						id="radio-choice-5" value="4" checked="checked"> Rest[<span
+						id="restValue">2</span>]
+					</label>
+				</fieldset>
+				<form></form>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>Chose time</legend>
+					<label> <input type="radio" name="trainingLevel"
+						id="radio-choice-1" value="0" checked="checked"> 1 h<br />+10
+					</label> <input type="radio" name="trainingLevel" id="radio-choice-2"
+						value="1" checked="checked"> 2 h<br />+18 </label> <input
+						type="radio" name="trainingLevel" id="radio-choice-3" value="2"
+						checked="checked"> 4 h<br />+32 </label> <input type="radio"
+						name="trainingLevel" id="radio-choice-3" value="4"
+						checked="checked"> 8 h<br />+56 </label>
 
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<legend>Chose time</legend>
-				<input type="radio" name="trainingLevel" id="radio-choice-1"
-					value="0" checked="checked" /> <label for="radio-choice-1">1
-					h<br />+10
-				</label> <input type="radio" name="trainingLevel" id="radio-choice-2"
-					value="1" /> <label for="radio-choice-2">2 h<br />+18
-				</label> <input type="radio" name="trainingLevel" id="radio-choice-3"
-					value="2" /> <label for="radio-choice-3">4 h<br />+32
-				</label> <input type="radio" name="trainingLevel" id="radio-choice-4"
-					value="3" /> <label for="radio-choice-4">8 h<br />+56
-				</label>
-			</fieldset>
+
+				</fieldset>
+
+			</form>
+
 			<button class="startTraining">Start</button>
-
 		</div>
 		<div id="training_in_progress">
 			Training in progress<br /> <b>Type </b><span id="trainingType"></span><br />
@@ -199,98 +204,112 @@
 			</div>
 
 			<div id="buy" class="ui-field-contain">
-				<label for="select-native-1">Category:</label> <select
-					name="select-native-1" id="buy_category">
-					<option value="1">Opona przednia</option>
-					<option value="2">Sprzęgło</option>
-					<option value="3">Rama</option>
-					<option value="4">Silnik</option>
-				</select> <br />
-
-				<div data-role="header">
-					<a href="#" data-iconpos="notext" data-role="button"
-						data-inline="true" data-icon="arrow-l" data-iconpos="left">Prev</a>
-
-					<h1 id="buy_name"></h1>
-
-					<a href="#" data-iconpos="notext" data-role="button"
-						data-inline="true" data-icon="arrow-r" data-iconpos="right">Next</a>
+				<div>
+					<label for="select-native-1">Category:</label> <select
+						name="select-native-1" id="buy_category">
+						<option value="1">Opona przednia</option>
+						<option value="2">Sprzęgło</option>
+						<option value="3">Rama</option>
+						<option value="4">Silnik</option>
+					</select>
 				</div>
 
-				<div class="ui-body ">
-					<p>image</p>
-					<div data-role="collapsible-set">
 
-						<div data-role="collapsible" data-collapsed="false">
-							<h3>Fautures</h3>
-							<table>
-								<tr>
-									<th>test</th>
-									<th>adf</th>
-								</tr>
-							</table>
+				<div>
+					<div data-role="header">
+						<a href="#" " data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top">Prev</a>
+
+						<h1 id="buy_name">w</h1>
+
+						<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top">Next</a>
+					</div>
+
+					<div class="ui-body ">
+						<p>image</p>
+						<div data-role="collapsible-set">
+
+							<div data-role="collapsible" data-collapsed="false">
+								<h3>Fautures</h3>
+								<table>
+									<tr>
+										<th>test</th>
+										<th>adf</th>
+									</tr>
+								</table>
+							</div>
+
+							<div data-role="collapsible">
+								<h3>TEst</h3>
+								<p>I'm the collapsible set content for section 2.</p>
+							</div>
+
 						</div>
-
-						<div data-role="collapsible">
-							<h3>TEst</h3>
-							<p>I'm the collapsible set content for section 2.</p>
-						</div>
-
 					</div>
 				</div>
-
+						<div data-role="footer"><h4>
+					<a href="#" data-role="button" data-inline="true">Buy</a></h4>
+				</div>
 			</div>
 
 
 
 
 			<div id="sell" class="ui-field-contain">
-				<label for="select-native-1">Category:</label> <select
-					name="select-native-1" id="sell_category">
-					<option value="small">One</option>
-					<option value="medium">Two</option>
-					<option value="large">Three</option>
-				</select> <br />
-
-				<div data-role="header">
-					<a href="#" data-iconpos="notext" data-role="button"
-						data-inline="true" data-icon="arrow-l" data-iconpos="left">Prev</a>
-
-					<h1 id="sell_name"></h1>
-
-					<a href="#" data-iconpos="notext" data-role="button"
-						data-inline="true" data-icon="arrow-r" data-iconpos="right">Next</a>
+				<div>
+					<label for="select-native-1">Category:</label> <select
+						name="select-native-1" id="sell_category">
+						<option value="small">One</option>
+						<option value="medium">Two</option>
+						<option value="large">Three</option>
+					</select>
 				</div>
+				<div>
 
-				<div class="ui-body ">
-					<p>image</p>
-					<div data-role="collapsible-set">
+					<div data-role="header" data-vertical-centred>
+						<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top">Prev</a>
 
-						<div data-role="collapsible" data-collapsed="false">
-							<h3>Fautures</h3>
-							<table>
-								<tr>
-									<th>test</th>
-									<th>adf</th>
-								</tr>
-							</table>
-						</div>
+						<h1 id="sell_name">asdf</h1>
 
-						<div data-role="collapsible">
-							<h3>TEst</h3>
-							<p>I'm the collapsible set content for section 2.</p>
-						</div>
-
+						<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top">Next</a>
 					</div>
+
+					<div class="ui-body ">
+						<p>image</p>
+						<div data-role="collapsible-set">
+
+							<div data-role="collapsible" data-collapsed="false">
+								<h3>Fautures</h3>
+								<table>
+									<tr>
+										<th>test</th>
+										<th>adf</th>
+									</tr>
+								</table>
+							</div>
+
+							<div data-role="collapsible">
+								<h3>TEst</h3>
+								<p>I'm the collapsible set content for section 2.</p>
+							</div>
+
+						</div>
+					</div>
+
+
 				</div>
-
-
-
+				<div data-role="footer"><h4>
+					<a href="#" data-role="button" data-inline="true">Sell</a></h4>
+				</div>
 			</div>
 
 
 
 		</div>
+		
 	</div>
 
 
@@ -316,73 +335,171 @@
 		<div data-role="header">
 			<h2>Rank</h2>
 		</div>
-		
-		
-		<table data-role="table" id="movie-table" data-mode="columntoggle" class="ui-responsive table-stroke">
-		      <thead>
-		        <tr>
-		          <th >Position</th>
-		          <th >Name</th>
-		          
-		      
-		        </tr>
-		      </thead>
-		      <tbody>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		        <tr>
-		          <th>222</th>
-		          <td>Gocom</td>
-		          		         
-		        </tr>
-		      </tbody>
-		      
-		     
-		    </table>
 
-		
+
+		<table data-role="table" id="movie-table" data-mode="columntoggle"
+			class="ui-responsive table-stroke">
+			<thead>
+				<tr>
+					<th>Position</th>
+					<th>Name</th>
+
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+				<tr>
+					<th>222</th>
+					<td>Gocom</td>
+
+				</tr>
+			</tbody>
+
+
+		</table>
+
+
 	</div>
 
 
 	<!-- machine park  -->
 	<div data-role="page" id="machine_park_page">
 		<div data-role="header">
-			<h2>Machine park</h2>
+			<h2>Machine park</h2>			
 		</div>
+		<div class="main_bike"></div>
+		
+		<div class="ui-corner-all custom-corners">
+  			<div class="ui-bar ui-bar-a" >
+    			<h2>Engine</h2>
+  			</div>
+  			<div class="ui-body ui-body-a" data-position="inline">
+    			<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top" >Prev</a>
+
+				<span class="machine_park"> af sdfasd
+						
+						
+				</span>
+
+					<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top" class="ui-btn-right">Next</a>
+			</div>
+  		</div>
+  		
+  		<div class="ui-corner-all custom-corners">
+  			<div class="ui-bar ui-bar-a" >
+    			<h2>Koło</h2>
+  			</div>
+  			<div class="ui-body ui-body-a" data-position="inline">
+    			<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top" >Prev</a>
+
+				<span class="machine_park"> af sdfasd
+						
+						
+				</span>
+
+					<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top" class="ui-btn-right">Next</a>
+			</div>
+  		</div>
+  		
+  		<div class="ui-corner-all custom-corners">
+  			<div class="ui-bar ui-bar-a" >
+    			<h2>Koł22</h2>
+  			</div>
+  			<div class="ui-body ui-body-a" data-position="inline">
+    			<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top" >Prev</a>
+
+				<span class="machine_park"> af sdfasd
+						
+						
+				</span>
+
+					<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top" class="ui-btn-right">Next</a>
+			</div>
+  		</div>
+  		
+  		
+  		<div class="ui-corner-all custom-corners">
+  			<div class="ui-bar ui-bar-a" >
+    			<h2>Zębatka</h2>
+  			</div>
+  			<div class="ui-body ui-body-a" data-position="inline">
+    			<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top" >Prev</a>
+
+				<span class="machine_park"> af sdfasd
+						
+						
+				</span>
+
+					<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top" class="ui-btn-right">Next</a>
+			</div>
+  		</div>
+  		
+  		
+  		<div class="ui-corner-all custom-corners">
+  			<div class="ui-bar ui-bar-a" >
+    			<h2>SPrzęgło</h2>
+  			</div>
+  			<div class="ui-body ui-body-a" data-position="inline">
+    			<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-l" data-iconpos="top" >Prev</a>
+
+				<span class="machine_park"> af sdfasd
+						
+						
+				</span>
+
+					<a href="#" data-role="button" data-inline="true"
+							data-icon="arrow-r" data-iconpos="top" class="ui-btn-right">Next</a>
+			</div>
+  		</div>
 	</div>
+		
+		
+
+
 
 	<!-- race  -->
 	<div data-role="page" id="race_page">
@@ -400,6 +517,8 @@
 		</header>
 		<div data-role="content" id="MessageBoxMessage"></div>
 		<footer data-role="footer">SocialSpeedway</footer>
+	</section>
+	
 	</section>
 </body>
 </html>

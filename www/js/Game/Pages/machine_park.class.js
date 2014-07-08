@@ -19,7 +19,7 @@ function MachineParkPage(){
 	}
 	    
 	function thisPage() {
-		$.mobile.changePage("#schedule_page", "none");
+		$.mobile.changePage("#machine_park_page", "none");
 	    gameState.gamePage = GAMEPAGE.MACHINE_PARK;
 	    page.currentPage = page.machineParkPage;
 	}

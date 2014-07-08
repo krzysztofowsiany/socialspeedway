@@ -8,6 +8,7 @@ function StartPage(){
 		$(".login").on('click', onClickLogin);
     	$(".new_game").on('click', onClickNewGame);
     	$(".continue").on('click', onClickContinue);
+    	$("#all_content").show();
 	}
 	
 	

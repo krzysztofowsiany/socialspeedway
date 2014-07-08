@@ -30,183 +30,95 @@ var CORE = {
 		/**
 		 * default includes
 		 */
-		CORE
-				.loadScript(
-						"js/libs/md5.js",
-						function() {
-							// library
-							CORE
-									.loadScript(
-											"js/libs/jquery.min.js",
-											function() {
-												CORE
-														.loadScript(
-																"js/libs/jquery.mobile-1.4.3.min.js",
-																function() {
-																	CORE
-																			.loadScript(
-																					CORE.SERVER_URL
-																							+ "/socket.io/socket.io.js",
-																					function() {
-																						CORE
-																								.loadScript(
-																										"js/libs/RemoteLog.class.js",
-																										function() {
-
-																											// authentication
-																											CORE
-																													.loadScript(
-																															"js/Game/Auth/login.class.js",
-																															function() {
-																																CORE
-																																		.loadScript(
-																																				"js/Game/Auth/register.class.js",
-																																				function() {
-
-																																					// synchronization
-																																					CORE
-																																							.loadScript(
-																																									"js/Game/Synchronization/ProfileSynchronize.class.js",
-																																									function() {
-																																										CORE
-																																												.loadScript(
-																																														"js/Game/Synchronization/SkillsSynchronize.class.js",
-																																														function() {
-																																															CORE
-																																																	.loadScript(
-																																																			"js/Game/Synchronization/TrainingSynchronize.class.js",
-																																																			function() {
-																																																				CORE
-																																																						.loadScript(
-																																																								"js/Game/Synchronization/BadgesSynchronize.class.js",
-																																																								function() {
-																																																									CORE
-																																																											.loadScript(
-																																																													"js/Game/Synchronization/AchievementsSynchronize.class.js",
-																																																													function() {
-
-																																																														CORE
-																																																																.loadScript(
-																																																																		"js/Game/Synchronization/Synchronize.class.js",
-																																																																		function() {
-
-																																																																			// game
-																																																																			// state
-																																																																			CORE
-																																																																					.loadScript(
-																																																																							"js/Game/dataScheme.js",
-																																																																							function() {
-																																																																								CORE
-																																																																										.loadScript(
-																																																																												"js/Game/gameState.class.js",
-																																																																												function() {
-																																																																													CORE
-																																																																															.loadScript(
-																																																																																	"js/Game/gameData.class.js",
-																																																																																	function() {
-																																																																																		CORE
-																																																																																				.loadScript(
-																																																																																						"js/Game/trainingParams.js",
-																																																																																						function() {
-
-																																																																																							// pages
-																																																																																							CORE
-																																																																																									.loadScript(
-																																																																																											"js/Game/Pages/start.class.js",
-																																																																																											function() {
-
-																																																																																												CORE
-																																																																																														.loadScript(
-																																																																																																"js/Game/Pages/profile.class.js",
-																																																																																																function() {
-																																																																																																	CORE
-																																																																																																			.loadScript(
-																																																																																																					"js/Game/Pages/game.class.js",
-																																																																																																					function() {
-																																																																																																						CORE
-																																																																																																								.loadScript(
-																																																																																																										"js/Game/Pages/register.class.js",
-																																																																																																										function() {
-																																																																																																											CORE
-																																																																																																													.loadScript(
-																																																																																																															"js/Game/Pages/training.class.js",
-																																																																																																															function() {
-																																																																																																																CORE
-																																																																																																																		.loadScript(
-																																																																																																																				"js/Game/Pages/achievements.class.js",
-																																																																																																																				function() {
-																																																																																																																					CORE
-																																																																																																																							.loadScript(
-																																																																																																																									"js/Game/Pages/badges.class.js",
-																																																																																																																									function() {
-																																																																																																																										CORE
-																																																																																																																												.loadScript(
-																																																																																																																														"js/Game/Pages/schedule.class.js",
-																																																																																																																														function() {
-																																																																																																																															CORE
-																																																																																																																																	.loadScript(
-																																																																																																																																			"js/Game/Pages/rank.class.js",
-																																																																																																																																			function() {
-																																																																																																																																				CORE
-																																																																																																																																						.loadScript(
-																																																																																																																																								"js/Game/Pages/race.class.js",
-																																																																																																																																								function() {
-																																																																																																																																									CORE
-																																																																																																																																											.loadScript(
-																																																																																																																																													"js/Game/Pages/market.class.js",
-																																																																																																																																													function() {
-																																																																																																																																														CORE
-																																																																																																																																																.loadScript(
-																																																																																																																																																		"js/Game/Pages/machine_park.class.js",
-																																																																																																																																																		function() {
-
-																																																																																																																																																			if (CORE
-																																																																																																																																																					.isDEVICE())
-																																																																																																																																																				CORE
-																																																																																																																																																						.loadScript(
-																																																																																																																																																								"cordova.js",
-																																																																																																																																																								function() {
-																																																																																																																																																									subLoad();
-																																																																																																																																																								});
-																																																																																																																																																			else
-																																																																																																																																																				subLoad();
-																																																																																																																																																		});
-																																																																																																																																													});
-																																																																																																																																								});
-																																																																																																																																			});
-																																																																																																																														});
-
-																																																																																																																									});
-																																																																																																																				});
-																																																																																																															});
-																																																																																																										});
-																																																																																																					});
-																																																																																																});
-																																																																																											});
-																																																																																						});
-																																																																																	});
-																																																																												});
-																																																																							});
-																																																																		});
-																																																													});
-																																																								});
-																																																			});
-																																														});
-																																									});
-																																				});
-																															});
-																										});
-																					});
-																});
-											});
-						});
+		CORE.loadScript("js/libs/md5.js",function() {
+					// library
+			CORE.loadScript("js/libs/jquery.min.js", function() {
+				$("#all_content").hide();
+				CORE.loadScript("js/libs/jquery.mobile-1.4.3.min.js", function() {
+					CORE.loadScript(CORE.SERVER_URL	+ "/socket.io/socket.io.js", function() {
+						CORE.loadGame(subLoad);
+					}, function (){
+						CORE.loadGame(subLoad);
+						console.error("Can't load a Socket.IO");
+					});
+				});
+			});
+		});
 
 	},
 
-	loadScript : function(url, callback) {
+	loadGame:function(subLoad){
+		CORE.loadScript("js/libs/RemoteLog.class.js",function() {
+			// authentication
+			CORE.loadScript("js/Game/Auth/login.class.js",function() {
+				CORE.loadScript("js/Game/Auth/register.class.js",function() {
+					// synchronization
+					CORE.loadScript("js/Game/Synchronization/ProfileSynchronize.class.js", function() {
+						CORE.loadScript("js/Game/Synchronization/SkillsSynchronize.class.js", function() {
+							CORE.loadScript("js/Game/Synchronization/TrainingSynchronize.class.js",	function() {
+								CORE.loadScript("js/Game/Synchronization/BadgesSynchronize.class.js", function() {
+									CORE.loadScript("js/Game/Synchronization/AchievementsSynchronize.class.js", function() {
+										CORE.loadScript("js/Game/Synchronization/Synchronize.class.js",function() {
+											// game
+											// 	state
+											CORE.loadScript("js/Game/dataScheme.js",function() {
+												CORE.loadScript("js/Game/gameState.class.js",function() {
+													CORE.loadScript("js/Game/gameData.class.js",function() {
+														CORE.loadScript("js/Game/trainingParams.js",function() {
+															// pages
+															CORE.loadScript("js/Game/Pages/start.class.js", function() {
+																CORE.loadScript("js/Game/Pages/profile.class.js",function() {	
+																	CORE.loadScript("js/Game/Pages/game.class.js", function() {	
+																		CORE.loadScript("js/Game/Pages/register.class.js",function() {
+																			CORE.loadScript("js/Game/Pages/training.class.js",function() {
+																				CORE.loadScript("js/Game/Pages/achievements.class.js",function() {
+																					CORE.loadScript("js/Game/Pages/badges.class.js",function() {
+																						CORE.loadScript("js/Game/Pages/schedule.class.js",function() {
+																							CORE.loadScript("js/Game/Pages/rank.class.js",function() {
+																								CORE.loadScript("js/Game/Pages/race.class.js",function() {
+																									CORE.loadScript("js/Game/Pages/market.class.js",function() {
+																										CORE.loadScript("js/Game/Pages/machine_park.class.js",function() {
+																											if (CORE.isDEVICE())
+																												CORE.loadScript("cordova.js",function(){ 
+																													subLoad();
+																												});																													
+																											subLoad();
+																										});
+																									});
+																								});																														
+																							});																														
+																						});																														
+																					});
+																				});
+																			});
+																		});
+																	});
+																});
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	},
+	
+	loadScript : function(url, callback, fail) {
 		var script = document.createElement("script")
 		script.type = "text/javascript";
 
+		script.onerror = function(){
+			if (fail!=undefined)
+				fail();
+		}
+		
 		if (script.readyState) { // IE
 			script.onreadystatechange = function() {
 				if (script.readyState == "loaded"
