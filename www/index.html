@@ -12,23 +12,19 @@
 
 <script type="text/javascript" src="js/Game/core.class.js"></script>
 <script type="text/javascript">
-	
-	CORE.init(function() {
-		CORE.loadScript("js/Game/game.js", function() {
-
+	CORE.init(function() {		
+		CORE.loadScript("js/Game/game.js", function() {	
 			CORE.LOG = new RemoteLog(CORE.ID, CORE.VERSION);
 			page.initialize();
-
 		});
 	});
 </script>
 <title>SocialSpeedway</title>
 </head>
-<body>
-	<section id="all_content" >
+<body>	
 	<!-- start page -->
 	<div data-role="page" id="start_page">
-		<div data-role="header">
+		<div data-role="header">		
 			<h2>SocialSpeedway</h2>
 		</div>
 		<div data-role="content">
@@ -72,6 +68,7 @@
 	<!-- profile -->
 	<div data-role="page" id="profile_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="profileBack">Back</a>
 			<h2>Profile</h2>
 		</div>
 		<form id="profile">
@@ -104,6 +101,7 @@
 	<!-- register -->
 	<div data-role="page" id="register_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="registerBack">Back</a>
 			<h2>Register</h2>
 		</div>
 
@@ -120,6 +118,7 @@
 	<!-- training -->
 	<div data-role="page" id="training_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="trainingBack">Back</a>		
 			<h2>Training</h2>
 		</div>
 		<div id="new_training">
@@ -154,8 +153,6 @@
 						checked="checked"> 4 h<br />+32 </label> <input type="radio"
 						name="trainingLevel" id="radio-choice-3" value="4"
 						checked="checked"> 8 h<br />+56 </label>
-
-
 				</fieldset>
 
 			</form>
@@ -166,7 +163,7 @@
 			Training in progress<br /> <b>Type </b><span id="trainingType"></span><br />
 			<b>Bonus </b><span id="trainingBonus"></span><br /> <b>Time to
 				end </b><span id="trainingLeft"></span><br />
-
+			<div class="push_up"></div>
 
 			<button class="stopTraining">Stop</button>
 		</div>
@@ -175,6 +172,7 @@
 	<!-- achievements -->
 	<div data-role="page" id="achievements_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="achievementBack">Back</a>		
 			<h2>Achievements</h2>
 		</div>
 		<div id="achievements"></div>
@@ -183,6 +181,7 @@
 	<!-- badges -->
 	<div data-role="page" id="badges_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="badgeBack">Back</a>		
 			<h2>Badges</h2>
 		</div>
 		<div id="badges"></div>
@@ -192,6 +191,7 @@
 	<!-- market -->
 	<div data-role="page" id="market_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="marketBack">Back</a>		
 			<h2>Market</h2>
 		</div>
 		<div data-role="tabs" id="tabs">
@@ -316,6 +316,7 @@
 	<!-- schedule  -->
 	<div data-role="page" id="schedule_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="scheduleBack">Back</a>		
 			<h2>Schedule</h2>
 		</div>
 		<div data-role="tabs" id="tabs">
@@ -333,6 +334,7 @@
 	<!-- Rank  -->
 	<div data-role="page" id="rank_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="rankBack">Back</a>		
 			<h2>Rank</h2>
 		</div>
 
@@ -400,6 +402,7 @@
 	<!-- machine park  -->
 	<div data-role="page" id="machine_park_page">
 		<div data-role="header">
+			<a href="" data-icon="arrow-l" id="machineParkBack">Back</a>		
 			<h2>Machine park</h2>			
 		</div>
 		<div class="main_bike"></div>
@@ -519,6 +522,6 @@
 		<footer data-role="footer">SocialSpeedway</footer>
 	</section>
 	
-	</section>
+	
 </body>
 </html>

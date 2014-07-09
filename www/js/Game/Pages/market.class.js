@@ -4,6 +4,7 @@
  */
 function MarketPage(){
 	function init(){
+		$("#marketBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}	
 	

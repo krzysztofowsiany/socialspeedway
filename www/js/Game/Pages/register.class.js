@@ -5,6 +5,7 @@
 
 function RegisterPage(){
 	function init() {
+		$("#registerBack").on('click', function (){page.gamePage.thisPage();});
 		$(".registerUser").on('click', onClickRegister);		  	
 	}
     

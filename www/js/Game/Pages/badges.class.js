@@ -4,6 +4,7 @@
  */
 function BadgesPage(){
 	function init(){
+		$("#badgeBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}
 	

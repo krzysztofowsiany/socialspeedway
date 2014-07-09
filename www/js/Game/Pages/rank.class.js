@@ -4,6 +4,7 @@
  */
 function RankPage(){
 	function init(){
+		$("#rankBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}	
 	

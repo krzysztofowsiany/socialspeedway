@@ -4,6 +4,7 @@
  */
 function SchedulePage(){
 	function init(){
+		$("#scheduleBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}	
 	

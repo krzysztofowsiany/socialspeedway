@@ -4,6 +4,7 @@
  */
 function AchievementsPage(){
 	function init(){
+		$("#achievementBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}
 	

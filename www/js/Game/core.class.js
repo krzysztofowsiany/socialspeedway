@@ -27,6 +27,7 @@ var CORE = {
 			this.ID = 2;
 		}
 
+		
 		/**
 		 * default includes
 		 */
@@ -35,10 +36,10 @@ var CORE = {
 			CORE.loadScript("js/libs/jquery.min.js", function() {
 				$("#all_content").hide();
 				CORE.loadScript("js/libs/jquery.mobile-1.4.3.min.js", function() {
-					CORE.loadScript(CORE.SERVER_URL	+ "/socket.io/socket.io.js", function() {
-						CORE.loadGame(subLoad);
-					}, function (){
-						CORE.loadGame(subLoad);
+					CORE.loadScript(CORE.SERVER_URL	+ "/socket.io/socket.io.js", function() {						
+						CORE.loadGame(subLoad);						
+					}, function (){					
+						CORE.loadGame(subLoad);						
 						console.error("Can't load a Socket.IO");
 					});
 				});
@@ -80,9 +81,10 @@ var CORE = {
 																										CORE.loadScript("js/Game/Pages/machine_park.class.js",function() {
 																											if (CORE.isDEVICE())
 																												CORE.loadScript("cordova.js",function(){ 
-																													subLoad();
-																												});																													
-																											subLoad();
+																													subLoad();																													
+																												});
+																											else	
+																												subLoad();
 																										});
 																									});
 																								});																														
@@ -111,6 +113,7 @@ var CORE = {
 	},
 	
 	loadScript : function(url, callback, fail) {
+		console.log(url);
 		var script = document.createElement("script")
 		script.type = "text/javascript";
 

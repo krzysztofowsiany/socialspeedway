@@ -4,7 +4,8 @@
  */
 
 function ProfilePage(){
-	function init(){    	
+	function init(){    
+		$("#profileBack").on('click', function (){page.gamePage.thisPage();});
     	$(".saveProfile").on('click', onClickSaveProfile);
     	 
     	

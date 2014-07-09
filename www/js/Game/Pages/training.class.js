@@ -8,7 +8,7 @@ function TrainingPage() {
 	function init(){
 		$(".stopTraining").on('click', onStopTraining);
     	$(".startTraining").on('click', onStartTraining);
-    	
+    	$("#trainingBack").on('click', function (){page.gamePage.thisPage();});
 				
     	onResumeTraining();
 	}

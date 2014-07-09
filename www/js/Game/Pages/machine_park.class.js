@@ -4,6 +4,7 @@
  */
 function MachineParkPage(){
 	function init(){
+		$("#machineParkBack").on('click', function (){page.gamePage.thisPage();});
 		update();
 	}	
 	
