@@ -91,6 +91,29 @@ var trainingParams = [
     	                },
     	             ]
          },
+         
+         //        	rest
+         {
+        	 'name':'Rest',
+        	 'params':[ 
+        	          	{
+        	   	    	 'exp':10,
+        	   	    	 'time':1,	    	 
+    	             	},
+    	             	{
+    	             		'exp':18,
+    	      	    	 	'time':2,   	    	 	
+    	                },             	
+    	                {
+    	          	    	 'exp':32,
+    	          	    	 'time':4,       	    	 
+    	                },
+    	                {
+    	          	    	 'exp':56,
+    	          	    	 'time':8,       	    	 
+    	                },
+    	             ]
+         },
 ];
 		
 		

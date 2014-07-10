@@ -76,6 +76,12 @@ function TrainingPage() {
 			gameData.data.player.skills.endurance+=params.exp;
 			
 			break;
+			
+			//rest
+		case 4:
+			gameData.data.player.skills.rest+=params.exp;
+			
+			break;
 		
 		}
 		
@@ -119,6 +125,7 @@ function TrainingPage() {
 		$("#agilityValue").html(gameData.data.player.skills.agility);
 		$("#speedValue").html(gameData.data.player.skills.speed);
 		$("#enduranceValue").html(gameData.data.player.skills.endurance);
+		$("#restValue").html(gameData.data.player.skills.rest);
 	}
 	
 	function onResumeTraining(){		
@@ -133,6 +140,7 @@ function TrainingPage() {
 	
 	function getTrainingParams(){
 		training = trainingParams[gameData.data.player.training.trainingType];
+		console.log(gameData.data.player.training.trainingLevel);
 		params = training.params[gameData.data.player.training.trainingLevel];		
 	}
 	

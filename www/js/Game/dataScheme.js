@@ -13,7 +13,8 @@ var dataScheme = {
 		  'speed':0,
 		  'agility':0,
 		  'endurance':0,
-		  'strength':0
+		  'strength':0,
+		  'rest':0
 	  },
 	  'training':{
 		  'endTime':0,
